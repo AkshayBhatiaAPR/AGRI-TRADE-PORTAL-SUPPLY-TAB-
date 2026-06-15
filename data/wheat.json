@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "commodity": "Wheat",
+    "unit": "Lakh Tonnes",
+    "last_updated": "2026-06-15T12:45:13.487102+00:00",
+    "source_pdf": "Time-Series-3rd-AE-2025-26-English.pdf",
+    "estimate_type": "3rd Advance Estimate",
+    "estimate_year": "2025-26"
+  },
+  "data": [
+    {
+      "year": "2025-26",
+      "total": null,
+      "summer": null,
+      "rabi": 1206.57,
+      "kharif": null
+    },
+    {
+      "year": "2024-25",
+      "total": null,
+      "summer": null,
+      "rabi": 1179.45,
+      "kharif": null
+    },
+    {
+      "year": "2023-24",
+      "total": null,
+      "summer": null,
+      "rabi": 1132.92,
+      "kharif": null
+    },
+    {
+      "year": "2022-23",
+      "total": null,
+      "summer": null,
+      "rabi": 1105.54,
+      "kharif": null
+    },
+    {
+      "year": "2021-22",
+      "total": null,
+      "summer": null,
+      "rabi": 1077.42,
+      "kharif": null
+    },
+    {
+      "year": "2020-21",
+      "total": null,
+      "summer": null,
+      "rabi": 1095.86,
+      "kharif": null
+    },
+    {
+      "year": "2019-20",
+      "total": null,
+      "summer": null,
+      "rabi": 1078.61,
+      "kharif": null
+    },
+    {
+      "year": "2018-19",
+      "total": null,
+      "summer": null,
+      "rabi": 1035.96,
+      "kharif": null
+    },
+    {
+      "year": "2017-18",
+      "total": null,
+      "summer": null,
+      "rabi": 998.7,
+      "kharif": null
+    },
+    {
+      "year": "2016-17",
+      "total": null,
+      "summer": null,
+      "rabi": 985.1,
+      "kharif": null
+    },
+    {
+      "year": "2015-16",
+      "total": null,
+      "summer": null,
+      "rabi": 922.88,
+      "kharif": null
+    }
+  ]
+}
