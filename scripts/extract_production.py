@@ -25,6 +25,8 @@ from datetime import datetime, timezone
 import requests
 import pdfplumber
 from bs4 import BeautifulSoup
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ---------------------------------------------------------------------------
 # CONFIG
@@ -218,7 +220,7 @@ def discover_pdfs():
     """
     log.info(f"Fetching index page: {SOURCE_URL}")
     headers = {"User-Agent": USER_AGENT}
-    resp = requests.get(SOURCE_URL, headers=headers, timeout=60)
+    resp = requests.get(SOURCE_URL, headers=headers, timeout=60,  verify=False)
     resp.raise_for_status()
 
     soup = BeautifulSoup(resp.text, "html.parser")
@@ -334,7 +336,7 @@ def download_pdf(pdf_info):
     headers = {"User-Agent": USER_AGENT}
 
     try:
-        resp = requests.get(url, headers=headers, timeout=120)
+        resp = requests.get(url, headers=headers, timeout=120, verify=False)
         resp.raise_for_status()
     except requests.RequestException as e:
         log.error(f"Download failed: {e}")
