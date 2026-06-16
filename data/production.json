@@ -1,0 +1,503 @@
+{
+  "meta": {
+    "unit": "Lakh Tonnes",
+    "last_updated": "2026-06-16T04:43:04.150221+00:00",
+    "source_pdf": "Time-Series-3rd-AE-2025-26-English.pdf",
+    "estimate_type": "3rd Advance Estimate",
+    "estimate_year": "2025-26"
+  },
+  "commodities": {
+    "paddy": {
+      "name": "Paddy",
+      "data": [
+        {
+          "year": "2025-26",
+          "total": 1540.24,
+          "kharif": 1247.58,
+          "rabi": 181.07,
+          "summer": 111.59
+        },
+        {
+          "year": "2024-25",
+          "total": 1501.84,
+          "kharif": 1227.72,
+          "rabi": 161.29,
+          "summer": 112.84
+        },
+        {
+          "year": "2023-24",
+          "total": 1378.25,
+          "kharif": 1132.59,
+          "rabi": 146.01,
+          "summer": 99.65
+        },
+        {
+          "year": "2022-23",
+          "total": 1357.55,
+          "kharif": 1105.12,
+          "rabi": 150.04,
+          "summer": 102.4
+        },
+        {
+          "year": "2021-22",
+          "total": 1294.71,
+          "kharif": 1110.01,
+          "rabi": 184.71,
+          "summer": null
+        },
+        {
+          "year": "2020-21",
+          "total": 1243.68,
+          "kharif": 1052.08,
+          "rabi": 191.6,
+          "summer": null
+        },
+        {
+          "year": "2019-20",
+          "total": 1188.7,
+          "kharif": 1022.77,
+          "rabi": 165.94,
+          "summer": null
+        },
+        {
+          "year": "2018-19",
+          "total": 1164.78,
+          "kharif": 1020.4,
+          "rabi": 144.38,
+          "summer": null
+        },
+        {
+          "year": "2017-18",
+          "total": 1127.58,
+          "kharif": 971.35,
+          "rabi": 156.22,
+          "summer": null
+        },
+        {
+          "year": "2016-17",
+          "total": 1096.98,
+          "kharif": 963.03,
+          "rabi": 133.96,
+          "summer": null
+        },
+        {
+          "year": "2015-16",
+          "total": 1044.08,
+          "kharif": 914.13,
+          "rabi": 129.95,
+          "summer": null
+        }
+      ]
+    },
+    "wheat": {
+      "name": "Wheat",
+      "data": [
+        {
+          "year": "2025-26",
+          "total": null,
+          "kharif": null,
+          "rabi": 1206.57,
+          "summer": null
+        },
+        {
+          "year": "2024-25",
+          "total": null,
+          "kharif": null,
+          "rabi": 1179.45,
+          "summer": null
+        },
+        {
+          "year": "2023-24",
+          "total": null,
+          "kharif": null,
+          "rabi": 1132.92,
+          "summer": null
+        },
+        {
+          "year": "2022-23",
+          "total": null,
+          "kharif": null,
+          "rabi": 1105.54,
+          "summer": null
+        },
+        {
+          "year": "2021-22",
+          "total": null,
+          "kharif": null,
+          "rabi": 1077.42,
+          "summer": null
+        },
+        {
+          "year": "2020-21",
+          "total": null,
+          "kharif": null,
+          "rabi": 1095.86,
+          "summer": null
+        },
+        {
+          "year": "2019-20",
+          "total": null,
+          "kharif": null,
+          "rabi": 1078.61,
+          "summer": null
+        },
+        {
+          "year": "2018-19",
+          "total": null,
+          "kharif": null,
+          "rabi": 1035.96,
+          "summer": null
+        },
+        {
+          "year": "2017-18",
+          "total": null,
+          "kharif": null,
+          "rabi": 998.7,
+          "summer": null
+        },
+        {
+          "year": "2016-17",
+          "total": null,
+          "kharif": null,
+          "rabi": 985.1,
+          "summer": null
+        },
+        {
+          "year": "2015-16",
+          "total": null,
+          "kharif": null,
+          "rabi": 922.88,
+          "summer": null
+        }
+      ]
+    },
+    "maize": {
+      "name": "Maize",
+      "data": [
+        {
+          "year": "2025-26",
+          "total": 550.93,
+          "kharif": 305.09,
+          "rabi": 200.25,
+          "summer": 45.59
+        },
+        {
+          "year": "2024-25",
+          "total": 434.09,
+          "kharif": 248.08,
+          "rabi": 147.53,
+          "summer": 38.47
+        },
+        {
+          "year": "2023-24",
+          "total": 376.65,
+          "kharif": 222.45,
+          "rabi": 120.28,
+          "summer": 33.92
+        },
+        {
+          "year": "2022-23",
+          "total": 380.85,
+          "kharif": 236.74,
+          "rabi": 116.9,
+          "summer": 27.21
+        },
+        {
+          "year": "2021-22",
+          "total": 337.3,
+          "kharif": 226.81,
+          "rabi": 110.49,
+          "summer": null
+        },
+        {
+          "year": "2020-21",
+          "total": 316.47,
+          "kharif": 215.55,
+          "rabi": 100.92,
+          "summer": null
+        },
+        {
+          "year": "2019-20",
+          "total": 287.66,
+          "kharif": 194.29,
+          "rabi": 93.37,
+          "summer": null
+        },
+        {
+          "year": "2018-19",
+          "total": 277.15,
+          "kharif": 194.14,
+          "rabi": 83.02,
+          "summer": null
+        },
+        {
+          "year": "2017-18",
+          "total": 287.53,
+          "kharif": 201.18,
+          "rabi": 86.34,
+          "summer": null
+        },
+        {
+          "year": "2016-17",
+          "total": 259.0,
+          "kharif": 189.19,
+          "rabi": 69.81,
+          "summer": null
+        },
+        {
+          "year": "2015-16",
+          "total": 225.67,
+          "kharif": 160.53,
+          "rabi": 65.14,
+          "summer": null
+        }
+      ]
+    },
+    "sugarcane": {
+      "name": "Sugarcane",
+      "data": [
+        {
+          "year": "2025-26",
+          "total": null,
+          "kharif": 5000.63,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2024-25",
+          "total": null,
+          "kharif": 4546.11,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2023-24",
+          "total": null,
+          "kharif": 4531.58,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2022-23",
+          "total": null,
+          "kharif": 4905.33,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2021-22",
+          "total": null,
+          "kharif": 4394.25,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2020-21",
+          "total": null,
+          "kharif": 4053.99,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2019-20",
+          "total": null,
+          "kharif": 3705.0,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2018-19",
+          "total": null,
+          "kharif": 4054.16,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2017-18",
+          "total": null,
+          "kharif": 3799.05,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2016-17",
+          "total": null,
+          "kharif": 3060.69,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2015-16",
+          "total": null,
+          "kharif": 3484.48,
+          "rabi": null,
+          "summer": null
+        }
+      ]
+    },
+    "tur": {
+      "name": "Tur",
+      "data": [
+        {
+          "year": "2025-26",
+          "total": null,
+          "kharif": 35.92,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2024-25",
+          "total": null,
+          "kharif": 36.24,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2023-24",
+          "total": null,
+          "kharif": 34.17,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2022-23",
+          "total": null,
+          "kharif": 33.12,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2021-22",
+          "total": null,
+          "kharif": 42.2,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2020-21",
+          "total": null,
+          "kharif": 43.16,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2019-20",
+          "total": null,
+          "kharif": 38.92,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2018-19",
+          "total": null,
+          "kharif": 33.15,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2017-18",
+          "total": null,
+          "kharif": 42.9,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2016-17",
+          "total": null,
+          "kharif": 48.73,
+          "rabi": null,
+          "summer": null
+        },
+        {
+          "year": "2015-16",
+          "total": null,
+          "kharif": 25.61,
+          "rabi": null,
+          "summer": null
+        }
+      ]
+    },
+    "gram": {
+      "name": "Gram",
+      "data": [
+        {
+          "year": "2025-26",
+          "total": null,
+          "kharif": null,
+          "rabi": 125.14,
+          "summer": null
+        },
+        {
+          "year": "2024-25",
+          "total": null,
+          "kharif": null,
+          "rabi": 111.14,
+          "summer": null
+        },
+        {
+          "year": "2023-24",
+          "total": null,
+          "kharif": null,
+          "rabi": 110.39,
+          "summer": null
+        },
+        {
+          "year": "2022-23",
+          "total": null,
+          "kharif": null,
+          "rabi": 122.67,
+          "summer": null
+        },
+        {
+          "year": "2021-22",
+          "total": null,
+          "kharif": null,
+          "rabi": 135.44,
+          "summer": null
+        },
+        {
+          "year": "2020-21",
+          "total": null,
+          "kharif": null,
+          "rabi": 119.11,
+          "summer": null
+        },
+        {
+          "year": "2019-20",
+          "total": null,
+          "kharif": null,
+          "rabi": 110.78,
+          "summer": null
+        },
+        {
+          "year": "2018-19",
+          "total": null,
+          "kharif": null,
+          "rabi": 99.38,
+          "summer": null
+        },
+        {
+          "year": "2017-18",
+          "total": null,
+          "kharif": null,
+          "rabi": 113.79,
+          "summer": null
+        },
+        {
+          "year": "2016-17",
+          "total": null,
+          "kharif": null,
+          "rabi": 93.78,
+          "summer": null
+        },
+        {
+          "year": "2015-16",
+          "total": null,
+          "kharif": null,
+          "rabi": 70.58,
+          "summer": null
+        }
+      ]
+    }
+  }
+}
