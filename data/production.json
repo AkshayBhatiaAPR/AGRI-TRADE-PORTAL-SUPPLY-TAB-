@@ -1,0 +1,5953 @@
+{
+  "meta": {
+    "unit_area": "Lakh Hectares",
+    "unit_production": "Lakh Tonnes",
+    "unit_yield": "Kg/Hectare",
+    "source": "DA&FW via UPAg (upag.gov.in)",
+    "last_updated": "2026-06-16T07:31:31.771282+00:00"
+  },
+  "commodities": {
+    "paddy": {
+      "name": "Paddy",
+      "data": [
+        {
+          "year": "2025-26",
+          "kharif": {
+            "area": 446.7,
+            "production": 1247.58,
+            "yield": 2793.0
+          },
+          "rabi": {
+            "area": 48.99,
+            "production": 181.07,
+            "yield": 3696.0
+          },
+          "summer": {
+            "area": 32.63,
+            "production": 111.59,
+            "yield": 3419.0
+          },
+          "total": {
+            "area": 528.32,
+            "production": 1540.24,
+            "yield": 2915.0
+          }
+        },
+        {
+          "year": "2024-25",
+          "kharif": {
+            "area": 434.66,
+            "production": 1227.72,
+            "yield": 2825.0
+          },
+          "rabi": {
+            "area": 44.73,
+            "production": 161.29,
+            "yield": 3606.0
+          },
+          "summer": {
+            "area": 33.28,
+            "production": 112.84,
+            "yield": 3391.0
+          },
+          "total": {
+            "area": 512.67,
+            "production": 1501.84,
+            "yield": 2929.0
+          }
+        },
+        {
+          "year": "2023-24",
+          "kharif": {
+            "area": 407.34,
+            "production": 1132.59,
+            "yield": 2780.0
+          },
+          "rabi": {
+            "area": 40.76,
+            "production": 146.01,
+            "yield": 3582.0
+          },
+          "summer": {
+            "area": 30.18,
+            "production": 99.65,
+            "yield": 3302.0
+          },
+          "total": {
+            "area": 478.28,
+            "production": 1378.25,
+            "yield": 2882.0
+          }
+        },
+        {
+          "year": "2022-23",
+          "kharif": {
+            "area": 404.03,
+            "production": 1105.12,
+            "yield": 2735.0
+          },
+          "rabi": {
+            "area": 43.28,
+            "production": 150.04,
+            "yield": 3467.0
+          },
+          "summer": {
+            "area": 31.01,
+            "production": 102.4,
+            "yield": 3302.0
+          },
+          "total": {
+            "area": 478.32,
+            "production": 1357.55,
+            "yield": 2838.0
+          }
+        },
+        {
+          "year": "2021-22",
+          "kharif": {
+            "area": 410.38,
+            "production": 1110.01,
+            "yield": 2705.0
+          },
+          "rabi": {
+            "area": 52.4,
+            "production": 184.71,
+            "yield": 3525.0
+          },
+          "summer": null,
+          "total": {
+            "area": 462.79,
+            "production": 1294.71,
+            "yield": 2798.0
+          }
+        },
+        {
+          "year": "2020-21",
+          "kharif": {
+            "area": 403.58,
+            "production": 1052.08,
+            "yield": 2607.0
+          },
+          "rabi": {
+            "area": 54.11,
+            "production": 191.6,
+            "yield": 3541.0
+          },
+          "summer": null,
+          "total": {
+            "area": 457.69,
+            "production": 1243.68,
+            "yield": 2717.0
+          }
+        },
+        {
+          "year": "2019-20",
+          "kharif": {
+            "area": 390.13,
+            "production": 1022.77,
+            "yield": 2622.0
+          },
+          "rabi": {
+            "area": 46.49,
+            "production": 165.94,
+            "yield": 3569.0
+          },
+          "summer": null,
+          "total": {
+            "area": 436.62,
+            "production": 1188.7,
+            "yield": 2722.0
+          }
+        },
+        {
+          "year": "2018-19",
+          "kharif": {
+            "area": 399.64,
+            "production": 1020.4,
+            "yield": 2553.0
+          },
+          "rabi": {
+            "area": 41.92,
+            "production": 144.38,
+            "yield": 3444.0
+          },
+          "summer": null,
+          "total": {
+            "area": 441.56,
+            "production": 1164.78,
+            "yield": 2638.0
+          }
+        },
+        {
+          "year": "2017-18",
+          "kharif": {
+            "area": 393.49,
+            "production": 971.35,
+            "yield": 2469.0
+          },
+          "rabi": {
+            "area": 44.25,
+            "production": 156.22,
+            "yield": 3531.0
+          },
+          "summer": null,
+          "total": {
+            "area": 437.74,
+            "production": 1127.58,
+            "yield": 2576.0
+          }
+        },
+        {
+          "year": "2016-17",
+          "kharif": {
+            "area": 398.46,
+            "production": 963.03,
+            "yield": 2417.0
+          },
+          "rabi": {
+            "area": 41.48,
+            "production": 133.96,
+            "yield": 3230.0
+          },
+          "summer": null,
+          "total": {
+            "area": 439.93,
+            "production": 1096.98,
+            "yield": 2494.0
+          }
+        },
+        {
+          "year": "2015-16",
+          "kharif": {
+            "area": 396.56,
+            "production": 914.13,
+            "yield": 2305.0
+          },
+          "rabi": {
+            "area": 38.43,
+            "production": 129.95,
+            "yield": 3382.0
+          },
+          "summer": null,
+          "total": {
+            "area": 434.99,
+            "production": 1044.08,
+            "yield": 2400.0
+          }
+        },
+        {
+          "year": "2014-15",
+          "kharif": {
+            "area": 398.29,
+            "production": 913.92,
+            "yield": 2295.0
+          },
+          "rabi": {
+            "area": 42.82,
+            "production": 140.91,
+            "yield": 3291.0
+          },
+          "summer": null,
+          "total": {
+            "area": 441.11,
+            "production": 1054.82,
+            "yield": 2391.0
+          }
+        },
+        {
+          "year": "2013-14",
+          "kharif": {
+            "area": 394.49,
+            "production": 914.97,
+            "yield": 2319.0
+          },
+          "rabi": {
+            "area": 46.87,
+            "production": 151.49,
+            "yield": 3232.0
+          },
+          "summer": null,
+          "total": {
+            "area": 441.36,
+            "production": 1066.46,
+            "yield": 2416.0
+          }
+        },
+        {
+          "year": "2012-13",
+          "kharif": {
+            "area": 389.14,
+            "production": 923.59,
+            "yield": 2373.0
+          },
+          "rabi": {
+            "area": 38.4,
+            "production": 128.73,
+            "yield": 3353.0
+          },
+          "summer": null,
+          "total": {
+            "area": 427.54,
+            "production": 1052.32,
+            "yield": 2461.0
+          }
+        },
+        {
+          "year": "2011-12",
+          "kharif": {
+            "area": 401.23,
+            "production": 927.38,
+            "yield": 2311.0
+          },
+          "rabi": {
+            "area": 38.83,
+            "production": 125.63,
+            "yield": 3235.0
+          },
+          "summer": null,
+          "total": {
+            "area": 440.06,
+            "production": 1053.01,
+            "yield": 2393.0
+          }
+        },
+        {
+          "year": "2010-11",
+          "kharif": {
+            "area": 380.18,
+            "production": 806.07,
+            "yield": 2120.0
+          },
+          "rabi": {
+            "area": 48.45,
+            "production": 153.63,
+            "yield": 3171.0
+          },
+          "summer": null,
+          "total": {
+            "area": 428.62,
+            "production": 959.7,
+            "yield": 2239.0
+          }
+        },
+        {
+          "year": "2009-10",
+          "kharif": {
+            "area": 376.02,
+            "production": 759.07,
+            "yield": 2019.0
+          },
+          "rabi": {
+            "area": 43.16,
+            "production": 131.76,
+            "yield": 3053.0
+          },
+          "summer": null,
+          "total": {
+            "area": 419.18,
+            "production": 890.83,
+            "yield": 2125.0
+          }
+        },
+        {
+          "year": "2008-09",
+          "kharif": {
+            "area": 408.1,
+            "production": 849.51,
+            "yield": 2082.0
+          },
+          "rabi": {
+            "area": 47.27,
+            "production": 142.31,
+            "yield": 3010.0
+          },
+          "summer": null,
+          "total": {
+            "area": 455.37,
+            "production": 991.83,
+            "yield": 2178.0
+          }
+        },
+        {
+          "year": "2007-08",
+          "kharif": {
+            "area": 394.72,
+            "production": 827.03,
+            "yield": 2095.0
+          },
+          "rabi": {
+            "area": 44.42,
+            "production": 139.9,
+            "yield": 3149.0
+          },
+          "summer": null,
+          "total": {
+            "area": 439.14,
+            "production": 966.93,
+            "yield": 2202.0
+          }
+        },
+        {
+          "year": "2006-07",
+          "kharif": {
+            "area": 396.01,
+            "production": 801.71,
+            "yield": 2024.0
+          },
+          "rabi": {
+            "area": 42.12,
+            "production": 131.85,
+            "yield": 3130.0
+          },
+          "summer": null,
+          "total": {
+            "area": 438.14,
+            "production": 933.55,
+            "yield": 2131.0
+          }
+        },
+        {
+          "year": "2005-06",
+          "kharif": {
+            "area": 393.35,
+            "production": 782.72,
+            "yield": 1990.0
+          },
+          "rabi": {
+            "area": 43.25,
+            "production": 135.22,
+            "yield": 3127.0
+          },
+          "summer": null,
+          "total": {
+            "area": 436.6,
+            "production": 917.93,
+            "yield": 2102.0
+          }
+        },
+        {
+          "year": "2004-05",
+          "kharif": {
+            "area": 383.64,
+            "production": 722.3,
+            "yield": 1883.0
+          },
+          "rabi": {
+            "area": 35.43,
+            "production": 109.02,
+            "yield": 3077.0
+          },
+          "summer": null,
+          "total": {
+            "area": 419.07,
+            "production": 831.32,
+            "yield": 1984.0
+          }
+        },
+        {
+          "year": "2003-04",
+          "kharif": {
+            "area": 392.31,
+            "production": 786.19,
+            "yield": 2004.0
+          },
+          "rabi": {
+            "area": 33.62,
+            "production": 99.08,
+            "yield": 2947.0
+          },
+          "summer": null,
+          "total": {
+            "area": 425.93,
+            "production": 885.26,
+            "yield": 2078.0
+          }
+        },
+        {
+          "year": "2002-03",
+          "kharif": {
+            "area": 380.37,
+            "production": 630.83,
+            "yield": 1658.0
+          },
+          "rabi": {
+            "area": 31.39,
+            "production": 87.37,
+            "yield": 2783.0
+          },
+          "summer": null,
+          "total": {
+            "area": 411.76,
+            "production": 718.2,
+            "yield": 1744.0
+          }
+        },
+        {
+          "year": "2001-02",
+          "kharif": {
+            "area": 406.19,
+            "production": 805.22,
+            "yield": 1982.0
+          },
+          "rabi": {
+            "area": 42.85,
+            "production": 128.18,
+            "yield": 2992.0
+          },
+          "summer": null,
+          "total": {
+            "area": 449.04,
+            "production": 933.4,
+            "yield": 2079.0
+          }
+        },
+        {
+          "year": "2000-01",
+          "kharif": {
+            "area": 407.03,
+            "production": 727.78,
+            "yield": 1788.0
+          },
+          "rabi": {
+            "area": 40.09,
+            "production": 121.98,
+            "yield": 3042.0
+          },
+          "summer": null,
+          "total": {
+            "area": 447.12,
+            "production": 849.77,
+            "yield": 1901.0
+          }
+        },
+        {
+          "year": "1999-00",
+          "kharif": {
+            "area": 409.49,
+            "production": 774.81,
+            "yield": 1892.0
+          },
+          "rabi": {
+            "area": 42.13,
+            "production": 122.02,
+            "yield": 2897.0
+          },
+          "summer": null,
+          "total": {
+            "area": 451.62,
+            "production": 896.83,
+            "yield": 1986.0
+          }
+        },
+        {
+          "year": "1998-99",
+          "kharif": {
+            "area": 404.56,
+            "production": 727.2,
+            "yield": 1798.0
+          },
+          "rabi": {
+            "area": 43.47,
+            "production": 133.57,
+            "yield": 3073.0
+          },
+          "summer": null,
+          "total": {
+            "area": 448.02,
+            "production": 860.77,
+            "yield": 1921.0
+          }
+        },
+        {
+          "year": "1997-98",
+          "kharif": {
+            "area": 398.25,
+            "production": 725.3,
+            "yield": 1821.0
+          },
+          "rabi": {
+            "area": 36.22,
+            "production": 100.15,
+            "yield": 2765.0
+          },
+          "summer": null,
+          "total": {
+            "area": 434.47,
+            "production": 825.45,
+            "yield": 1900.0
+          }
+        },
+        {
+          "year": "1996-97",
+          "kharif": {
+            "area": 397.87,
+            "production": 635.56,
+            "yield": 1597.0
+          },
+          "rabi": {
+            "area": 36.46,
+            "production": 94.17,
+            "yield": 2583.0
+          },
+          "summer": null,
+          "total": {
+            "area": 434.33,
+            "production": 729.73,
+            "yield": 1680.0
+          }
+        },
+        {
+          "year": "1995-96",
+          "kharif": {
+            "area": 394.4,
+            "production": 678.79,
+            "yield": 1721.0
+          },
+          "rabi": {
+            "area": 33.97,
+            "production": 90.97,
+            "yield": 2678.0
+          },
+          "summer": null,
+          "total": {
+            "area": 428.37,
+            "production": 769.75,
+            "yield": 1797.0
+          }
+        },
+        {
+          "year": "1994-95",
+          "kharif": {
+            "area": 394.41,
+            "production": 726.03,
+            "yield": 1841.0
+          },
+          "rabi": {
+            "area": 33.73,
+            "production": 92.11,
+            "yield": 2731.0
+          },
+          "summer": null,
+          "total": {
+            "area": 428.14,
+            "production": 818.14,
+            "yield": 1911.0
+          }
+        },
+        {
+          "year": "1993-94",
+          "kharif": {
+            "area": 391.4,
+            "production": 707.24,
+            "yield": 1807.0
+          },
+          "rabi": {
+            "area": 34.01,
+            "production": 95.75,
+            "yield": 2815.0
+          },
+          "summer": null,
+          "total": {
+            "area": 425.41,
+            "production": 802.98,
+            "yield": 1888.0
+          }
+        },
+        {
+          "year": "1992-93",
+          "kharif": {
+            "area": 389.01,
+            "production": 652.43,
+            "yield": 1677.0
+          },
+          "rabi": {
+            "area": 28.75,
+            "production": 76.25,
+            "yield": 2653.0
+          },
+          "summer": null,
+          "total": {
+            "area": 417.75,
+            "production": 728.68,
+            "yield": 1744.0
+          }
+        },
+        {
+          "year": "1991-92",
+          "kharif": {
+            "area": 395.94,
+            "production": 663.68,
+            "yield": 1676.0
+          },
+          "rabi": {
+            "area": 30.55,
+            "production": 83.1,
+            "yield": 2720.0
+          },
+          "summer": null,
+          "total": {
+            "area": 426.49,
+            "production": 746.78,
+            "yield": 1751.0
+          }
+        },
+        {
+          "year": "1990-91",
+          "kharif": {
+            "area": 397.02,
+            "production": 663.17,
+            "yield": 1670.0
+          },
+          "rabi": {
+            "area": 29.85,
+            "production": 79.74,
+            "yield": 2671.0
+          },
+          "summer": null,
+          "total": {
+            "area": 426.87,
+            "production": 742.91,
+            "yield": 1740.0
+          }
+        },
+        {
+          "year": "1989-90",
+          "kharif": {
+            "area": 392.93,
+            "production": 658.78,
+            "yield": 1677.0
+          },
+          "rabi": {
+            "area": 28.74,
+            "production": 76.95,
+            "yield": 2678.0
+          },
+          "summer": null,
+          "total": {
+            "area": 421.67,
+            "production": 735.73,
+            "yield": 1745.0
+          }
+        },
+        {
+          "year": "1988-89",
+          "kharif": {
+            "area": 389.44,
+            "production": 633.76,
+            "yield": 1627.0
+          },
+          "rabi": {
+            "area": 27.92,
+            "production": 71.12,
+            "yield": 2548.0
+          },
+          "summer": null,
+          "total": {
+            "area": 417.36,
+            "production": 704.89,
+            "yield": 1689.0
+          }
+        },
+        {
+          "year": "1987-88",
+          "kharif": {
+            "area": 358.47,
+            "production": 490.49,
+            "yield": 1368.0
+          },
+          "rabi": {
+            "area": 29.6,
+            "production": 78.13,
+            "yield": 2640.0
+          },
+          "summer": null,
+          "total": {
+            "area": 388.06,
+            "production": 568.63,
+            "yield": 1465.0
+          }
+        },
+        {
+          "year": "1986-87",
+          "kharif": {
+            "area": 384.37,
+            "production": 535.61,
+            "yield": 1393.0
+          },
+          "rabi": {
+            "area": 27.29,
+            "production": 69.96,
+            "yield": 2563.0
+          },
+          "summer": null,
+          "total": {
+            "area": 411.67,
+            "production": 605.57,
+            "yield": 1471.0
+          }
+        },
+        {
+          "year": "1985-86",
+          "kharif": {
+            "area": 392.87,
+            "production": 595.16,
+            "yield": 1515.0
+          },
+          "rabi": {
+            "area": 19.03,
+            "production": 44.33,
+            "yield": 2329.0
+          },
+          "summer": null,
+          "total": {
+            "area": 411.9,
+            "production": 639.49,
+            "yield": 1553.0
+          }
+        },
+        {
+          "year": "1984-85",
+          "kharif": {
+            "area": 391.69,
+            "production": 537.82,
+            "yield": 1373.0
+          },
+          "rabi": {
+            "area": 19.9,
+            "production": 45.55,
+            "yield": 2289.0
+          },
+          "summer": null,
+          "total": {
+            "area": 411.59,
+            "production": 583.37,
+            "yield": 1417.0
+          }
+        },
+        {
+          "year": "1983-84",
+          "kharif": {
+            "area": 389.54,
+            "production": 550.52,
+            "yield": 1413.0
+          },
+          "rabi": {
+            "area": 22.9,
+            "production": 50.45,
+            "yield": 2203.0
+          },
+          "summer": null,
+          "total": {
+            "area": 412.44,
+            "production": 600.97,
+            "yield": 1457.0
+          }
+        },
+        {
+          "year": "1982-83",
+          "kharif": {
+            "area": 364.11,
+            "production": 431.64,
+            "yield": 1185.0
+          },
+          "rabi": {
+            "area": 18.51,
+            "production": 39.51,
+            "yield": 2135.0
+          },
+          "summer": null,
+          "total": {
+            "area": 382.62,
+            "production": 471.16,
+            "yield": 1231.0
+          }
+        },
+        {
+          "year": "1981-82",
+          "kharif": {
+            "area": 388.92,
+            "production": 492.45,
+            "yield": 1266.0
+          },
+          "rabi": {
+            "area": 18.16,
+            "production": 40.03,
+            "yield": 2204.0
+          },
+          "summer": null,
+          "total": {
+            "area": 407.08,
+            "production": 532.48,
+            "yield": 1308.0
+          }
+        },
+        {
+          "year": "1980-81",
+          "kharif": {
+            "area": 384.41,
+            "production": 500.9,
+            "yield": 1303.0
+          },
+          "rabi": {
+            "area": 17.1,
+            "production": 35.42,
+            "yield": 2071.0
+          },
+          "summer": null,
+          "total": {
+            "area": 401.52,
+            "production": 536.31,
+            "yield": 1336.0
+          }
+        },
+        {
+          "year": "1979-80",
+          "kharif": {
+            "area": 375.98,
+            "production": 384.86,
+            "yield": 1024.0
+          },
+          "rabi": {
+            "area": 18.16,
+            "production": 38.44,
+            "yield": 2116.0
+          },
+          "summer": null,
+          "total": {
+            "area": 394.14,
+            "production": 423.3,
+            "yield": 1074.0
+          }
+        },
+        {
+          "year": "1978-79",
+          "kharif": {
+            "area": 384.2,
+            "production": 493.37,
+            "yield": 1284.0
+          },
+          "rabi": {
+            "area": 20.62,
+            "production": 44.37,
+            "yield": 2151.0
+          },
+          "summer": null,
+          "total": {
+            "area": 404.82,
+            "production": 537.73,
+            "yield": 1328.0
+          }
+        },
+        {
+          "year": "1977-78",
+          "kharif": {
+            "area": 384.17,
+            "production": 489.47,
+            "yield": 1274.0
+          },
+          "rabi": {
+            "area": 18.66,
+            "production": 37.23,
+            "yield": 1995.0
+          },
+          "summer": null,
+          "total": {
+            "area": 402.83,
+            "production": 526.7,
+            "yield": 1308.0
+          }
+        },
+        {
+          "year": "1976-77",
+          "kharif": {
+            "area": 371.07,
+            "production": 392.66,
+            "yield": 1058.0
+          },
+          "rabi": {
+            "area": 14.04,
+            "production": 26.51,
+            "yield": 1888.0
+          },
+          "summer": null,
+          "total": {
+            "area": 385.11,
+            "production": 419.17,
+            "yield": 1088.0
+          }
+        },
+        {
+          "year": "1975-76",
+          "kharif": {
+            "area": 374.42,
+            "production": 447.45,
+            "yield": 1195.0
+          },
+          "rabi": {
+            "area": 20.34,
+            "production": 39.95,
+            "yield": 1964.0
+          },
+          "summer": null,
+          "total": {
+            "area": 394.75,
+            "production": 487.4,
+            "yield": 1235.0
+          }
+        },
+        {
+          "year": "1974-75",
+          "kharif": {
+            "area": 359.57,
+            "production": 359.25,
+            "yield": 999.0
+          },
+          "rabi": {
+            "area": 19.31,
+            "production": 36.53,
+            "yield": 1892.0
+          },
+          "summer": null,
+          "total": {
+            "area": 378.88,
+            "production": 395.79,
+            "yield": 1045.0
+          }
+        },
+        {
+          "year": "1973-74",
+          "kharif": {
+            "area": 364.87,
+            "production": 409.04,
+            "yield": 1121.0
+          },
+          "rabi": {
+            "area": 17.98,
+            "production": 31.47,
+            "yield": 1750.0
+          },
+          "summer": null,
+          "total": {
+            "area": 382.85,
+            "production": 440.51,
+            "yield": 1151.0
+          }
+        },
+        {
+          "year": "1972-73",
+          "kharif": {
+            "area": 350.75,
+            "production": 363.25,
+            "yield": 1036.0
+          },
+          "rabi": {
+            "area": 16.13,
+            "production": 29.21,
+            "yield": 1811.0
+          },
+          "summer": null,
+          "total": {
+            "area": 366.88,
+            "production": 392.45,
+            "yield": 1070.0
+          }
+        },
+        {
+          "year": "1971-72",
+          "kharif": {
+            "area": 360.87,
+            "production": 399.93,
+            "yield": 1108.0
+          },
+          "rabi": {
+            "area": 16.71,
+            "production": 30.76,
+            "yield": 1841.0
+          },
+          "summer": null,
+          "total": {
+            "area": 377.58,
+            "production": 430.69,
+            "yield": 1141.0
+          }
+        },
+        {
+          "year": "1970-71",
+          "kharif": {
+            "area": 359.51,
+            "production": 395.59,
+            "yield": 1100.0
+          },
+          "rabi": {
+            "area": 16.36,
+            "production": 26.66,
+            "yield": 1630.0
+          },
+          "summer": null,
+          "total": {
+            "area": 375.87,
+            "production": 422.25,
+            "yield": 1123.0
+          }
+        },
+        {
+          "year": "1969-70",
+          "kharif": {
+            "area": 358.18,
+            "production": 375.91,
+            "yield": 1050.0
+          },
+          "rabi": {
+            "area": 18.52,
+            "production": 28.39,
+            "yield": 1533.0
+          },
+          "summer": null,
+          "total": {
+            "area": 376.7,
+            "production": 404.3,
+            "yield": 1073.0
+          }
+        },
+        {
+          "year": "1968-69",
+          "kharif": {
+            "area": 353.06,
+            "production": 371.28,
+            "yield": 1052.0
+          },
+          "rabi": {
+            "area": 16.6,
+            "production": 26.34,
+            "yield": 1586.0
+          },
+          "summer": null,
+          "total": {
+            "area": 369.66,
+            "production": 397.61,
+            "yield": 1076.0
+          }
+        },
+        {
+          "year": "1967-68",
+          "kharif": {
+            "area": 349.12,
+            "production": 353.13,
+            "yield": 1011.0
+          },
+          "rabi": {
+            "area": 15.25,
+            "production": 22.99,
+            "yield": 1508.0
+          },
+          "summer": null,
+          "total": {
+            "area": 364.37,
+            "production": 376.12,
+            "yield": 1032.0
+          }
+        },
+        {
+          "year": "1966-67",
+          "kharif": {
+            "area": 339.32,
+            "production": 286.22,
+            "yield": 843.0
+          },
+          "rabi": {
+            "area": 13.18,
+            "production": 18.16,
+            "yield": 1378.0
+          },
+          "summer": null,
+          "total": {
+            "area": 352.51,
+            "production": 304.38,
+            "yield": 863.0
+          }
+        }
+      ]
+    },
+    "wheat": {
+      "name": "Wheat",
+      "data": [
+        {
+          "year": "2025-26",
+          "kharif": null,
+          "rabi": {
+            "area": 336.0,
+            "production": 1206.57,
+            "yield": 3591.0
+          },
+          "summer": null,
+          "total": {
+            "area": 336.0,
+            "production": 1206.57,
+            "yield": 3591.0
+          }
+        },
+        {
+          "year": "2024-25",
+          "kharif": null,
+          "rabi": {
+            "area": 328.04,
+            "production": 1179.45,
+            "yield": 3595.0
+          },
+          "summer": null,
+          "total": {
+            "area": 328.04,
+            "production": 1179.45,
+            "yield": 3595.0
+          }
+        },
+        {
+          "year": "2023-24",
+          "kharif": null,
+          "rabi": {
+            "area": 318.33,
+            "production": 1132.92,
+            "yield": 3559.0
+          },
+          "summer": null,
+          "total": {
+            "area": 318.33,
+            "production": 1132.92,
+            "yield": 3559.0
+          }
+        },
+        {
+          "year": "2022-23",
+          "kharif": null,
+          "rabi": {
+            "area": 314.01,
+            "production": 1105.54,
+            "yield": 3521.0
+          },
+          "summer": null,
+          "total": {
+            "area": 314.01,
+            "production": 1105.54,
+            "yield": 3521.0
+          }
+        },
+        {
+          "year": "2021-22",
+          "kharif": null,
+          "rabi": {
+            "area": 304.59,
+            "production": 1077.42,
+            "yield": 3537.0
+          },
+          "summer": null,
+          "total": {
+            "area": 304.59,
+            "production": 1077.42,
+            "yield": 3537.0
+          }
+        },
+        {
+          "year": "2020-21",
+          "kharif": null,
+          "rabi": {
+            "area": 311.25,
+            "production": 1095.86,
+            "yield": 3521.0
+          },
+          "summer": null,
+          "total": {
+            "area": 311.25,
+            "production": 1095.86,
+            "yield": 3521.0
+          }
+        },
+        {
+          "year": "2019-20",
+          "kharif": null,
+          "rabi": {
+            "area": 313.57,
+            "production": 1078.61,
+            "yield": 3440.0
+          },
+          "summer": null,
+          "total": {
+            "area": 313.57,
+            "production": 1078.61,
+            "yield": 3440.0
+          }
+        },
+        {
+          "year": "2018-19",
+          "kharif": null,
+          "rabi": {
+            "area": 293.19,
+            "production": 1035.96,
+            "yield": 3533.0
+          },
+          "summer": null,
+          "total": {
+            "area": 293.19,
+            "production": 1035.96,
+            "yield": 3533.0
+          }
+        },
+        {
+          "year": "2017-18",
+          "kharif": null,
+          "rabi": {
+            "area": 296.51,
+            "production": 998.7,
+            "yield": 3368.0
+          },
+          "summer": null,
+          "total": {
+            "area": 296.51,
+            "production": 998.7,
+            "yield": 3368.0
+          }
+        },
+        {
+          "year": "2016-17",
+          "kharif": null,
+          "rabi": {
+            "area": 307.85,
+            "production": 985.1,
+            "yield": 3200.0
+          },
+          "summer": null,
+          "total": {
+            "area": 307.85,
+            "production": 985.1,
+            "yield": 3200.0
+          }
+        },
+        {
+          "year": "2015-16",
+          "kharif": null,
+          "rabi": {
+            "area": 304.18,
+            "production": 922.88,
+            "yield": 3034.0
+          },
+          "summer": null,
+          "total": {
+            "area": 304.18,
+            "production": 922.88,
+            "yield": 3034.0
+          }
+        },
+        {
+          "year": "2014-15",
+          "kharif": null,
+          "rabi": {
+            "area": 314.66,
+            "production": 865.27,
+            "yield": 2750.0
+          },
+          "summer": null,
+          "total": {
+            "area": 314.66,
+            "production": 865.27,
+            "yield": 2750.0
+          }
+        },
+        {
+          "year": "2013-14",
+          "kharif": null,
+          "rabi": {
+            "area": 304.73,
+            "production": 958.5,
+            "yield": 3145.0
+          },
+          "summer": null,
+          "total": {
+            "area": 304.73,
+            "production": 958.5,
+            "yield": 3145.0
+          }
+        },
+        {
+          "year": "2012-13",
+          "kharif": null,
+          "rabi": {
+            "area": 300.03,
+            "production": 935.06,
+            "yield": 3117.0
+          },
+          "summer": null,
+          "total": {
+            "area": 300.03,
+            "production": 935.06,
+            "yield": 3117.0
+          }
+        },
+        {
+          "year": "2011-12",
+          "kharif": null,
+          "rabi": {
+            "area": 298.65,
+            "production": 948.82,
+            "yield": 3177.0
+          },
+          "summer": null,
+          "total": {
+            "area": 298.65,
+            "production": 948.82,
+            "yield": 3177.0
+          }
+        },
+        {
+          "year": "2010-11",
+          "kharif": null,
+          "rabi": {
+            "area": 290.69,
+            "production": 868.74,
+            "yield": 2989.0
+          },
+          "summer": null,
+          "total": {
+            "area": 290.69,
+            "production": 868.74,
+            "yield": 2989.0
+          }
+        },
+        {
+          "year": "2009-10",
+          "kharif": null,
+          "rabi": {
+            "area": 284.57,
+            "production": 808.04,
+            "yield": 2839.0
+          },
+          "summer": null,
+          "total": {
+            "area": 284.57,
+            "production": 808.04,
+            "yield": 2839.0
+          }
+        },
+        {
+          "year": "2008-09",
+          "kharif": null,
+          "rabi": {
+            "area": 277.52,
+            "production": 806.79,
+            "yield": 2907.0
+          },
+          "summer": null,
+          "total": {
+            "area": 277.52,
+            "production": 806.79,
+            "yield": 2907.0
+          }
+        },
+        {
+          "year": "2007-08",
+          "kharif": null,
+          "rabi": {
+            "area": 280.39,
+            "production": 785.7,
+            "yield": 2802.0
+          },
+          "summer": null,
+          "total": {
+            "area": 280.39,
+            "production": 785.7,
+            "yield": 2802.0
+          }
+        },
+        {
+          "year": "2006-07",
+          "kharif": null,
+          "rabi": {
+            "area": 279.95,
+            "production": 758.07,
+            "yield": 2708.0
+          },
+          "summer": null,
+          "total": {
+            "area": 279.95,
+            "production": 758.07,
+            "yield": 2708.0
+          }
+        },
+        {
+          "year": "2005-06",
+          "kharif": null,
+          "rabi": {
+            "area": 264.84,
+            "production": 693.55,
+            "yield": 2619.0
+          },
+          "summer": null,
+          "total": {
+            "area": 264.84,
+            "production": 693.55,
+            "yield": 2619.0
+          }
+        },
+        {
+          "year": "2004-05",
+          "kharif": null,
+          "rabi": {
+            "area": 263.83,
+            "production": 686.37,
+            "yield": 2602.0
+          },
+          "summer": null,
+          "total": {
+            "area": 263.83,
+            "production": 686.37,
+            "yield": 2602.0
+          }
+        },
+        {
+          "year": "2003-04",
+          "kharif": null,
+          "rabi": {
+            "area": 265.95,
+            "production": 721.56,
+            "yield": 2713.0
+          },
+          "summer": null,
+          "total": {
+            "area": 265.95,
+            "production": 721.56,
+            "yield": 2713.0
+          }
+        },
+        {
+          "year": "2002-03",
+          "kharif": null,
+          "rabi": {
+            "area": 251.96,
+            "production": 657.61,
+            "yield": 2610.0
+          },
+          "summer": null,
+          "total": {
+            "area": 251.96,
+            "production": 657.61,
+            "yield": 2610.0
+          }
+        },
+        {
+          "year": "2001-02",
+          "kharif": null,
+          "rabi": {
+            "area": 263.45,
+            "production": 727.66,
+            "yield": 2762.0
+          },
+          "summer": null,
+          "total": {
+            "area": 263.45,
+            "production": 727.66,
+            "yield": 2762.0
+          }
+        },
+        {
+          "year": "2000-01",
+          "kharif": null,
+          "rabi": {
+            "area": 257.31,
+            "production": 696.81,
+            "yield": 2708.0
+          },
+          "summer": null,
+          "total": {
+            "area": 257.31,
+            "production": 696.81,
+            "yield": 2708.0
+          }
+        },
+        {
+          "year": "1999-00",
+          "kharif": null,
+          "rabi": {
+            "area": 274.86,
+            "production": 763.69,
+            "yield": 2778.0
+          },
+          "summer": null,
+          "total": {
+            "area": 274.86,
+            "production": 763.69,
+            "yield": 2778.0
+          }
+        },
+        {
+          "year": "1998-99",
+          "kharif": null,
+          "rabi": {
+            "area": 275.23,
+            "production": 712.88,
+            "yield": 2590.0
+          },
+          "summer": null,
+          "total": {
+            "area": 275.23,
+            "production": 712.88,
+            "yield": 2590.0
+          }
+        },
+        {
+          "year": "1997-98",
+          "kharif": null,
+          "rabi": {
+            "area": 266.96,
+            "production": 663.5,
+            "yield": 2485.0
+          },
+          "summer": null,
+          "total": {
+            "area": 266.96,
+            "production": 663.5,
+            "yield": 2485.0
+          }
+        },
+        {
+          "year": "1996-97",
+          "kharif": null,
+          "rabi": {
+            "area": 258.87,
+            "production": 693.5,
+            "yield": 2679.0
+          },
+          "summer": null,
+          "total": {
+            "area": 258.87,
+            "production": 693.5,
+            "yield": 2679.0
+          }
+        },
+        {
+          "year": "1995-96",
+          "kharif": null,
+          "rabi": {
+            "area": 250.11,
+            "production": 620.97,
+            "yield": 2483.0
+          },
+          "summer": null,
+          "total": {
+            "area": 250.11,
+            "production": 620.97,
+            "yield": 2483.0
+          }
+        },
+        {
+          "year": "1994-95",
+          "kharif": null,
+          "rabi": {
+            "area": 257.0,
+            "production": 657.67,
+            "yield": 2559.0
+          },
+          "summer": null,
+          "total": {
+            "area": 257.0,
+            "production": 657.67,
+            "yield": 2559.0
+          }
+        },
+        {
+          "year": "1993-94",
+          "kharif": null,
+          "rabi": {
+            "area": 251.47,
+            "production": 598.4,
+            "yield": 2380.0
+          },
+          "summer": null,
+          "total": {
+            "area": 251.47,
+            "production": 598.4,
+            "yield": 2380.0
+          }
+        },
+        {
+          "year": "1992-93",
+          "kharif": null,
+          "rabi": {
+            "area": 245.89,
+            "production": 572.1,
+            "yield": 2327.0
+          },
+          "summer": null,
+          "total": {
+            "area": 245.89,
+            "production": 572.1,
+            "yield": 2327.0
+          }
+        },
+        {
+          "year": "1991-92",
+          "kharif": null,
+          "rabi": {
+            "area": 232.62,
+            "production": 556.9,
+            "yield": 2394.0
+          },
+          "summer": null,
+          "total": {
+            "area": 232.62,
+            "production": 556.9,
+            "yield": 2394.0
+          }
+        },
+        {
+          "year": "1990-91",
+          "kharif": null,
+          "rabi": {
+            "area": 241.67,
+            "production": 551.35,
+            "yield": 2281.0
+          },
+          "summer": null,
+          "total": {
+            "area": 241.67,
+            "production": 551.35,
+            "yield": 2281.0
+          }
+        },
+        {
+          "year": "1989-90",
+          "kharif": null,
+          "rabi": {
+            "area": 235.02,
+            "production": 498.5,
+            "yield": 2121.0
+          },
+          "summer": null,
+          "total": {
+            "area": 235.02,
+            "production": 498.5,
+            "yield": 2121.0
+          }
+        },
+        {
+          "year": "1988-89",
+          "kharif": null,
+          "rabi": {
+            "area": 241.09,
+            "production": 541.1,
+            "yield": 2244.0
+          },
+          "summer": null,
+          "total": {
+            "area": 241.09,
+            "production": 541.1,
+            "yield": 2244.0
+          }
+        },
+        {
+          "year": "1987-88",
+          "kharif": null,
+          "rabi": {
+            "area": 230.63,
+            "production": 461.69,
+            "yield": 2002.0
+          },
+          "summer": null,
+          "total": {
+            "area": 230.63,
+            "production": 461.69,
+            "yield": 2002.0
+          }
+        },
+        {
+          "year": "1986-87",
+          "kharif": null,
+          "rabi": {
+            "area": 231.31,
+            "production": 443.23,
+            "yield": 1916.0
+          },
+          "summer": null,
+          "total": {
+            "area": 231.31,
+            "production": 443.23,
+            "yield": 1916.0
+          }
+        },
+        {
+          "year": "1985-86",
+          "kharif": null,
+          "rabi": {
+            "area": 229.97,
+            "production": 470.52,
+            "yield": 2046.0
+          },
+          "summer": null,
+          "total": {
+            "area": 229.97,
+            "production": 470.52,
+            "yield": 2046.0
+          }
+        },
+        {
+          "year": "1984-85",
+          "kharif": null,
+          "rabi": {
+            "area": 235.65,
+            "production": 440.69,
+            "yield": 1870.0
+          },
+          "summer": null,
+          "total": {
+            "area": 235.65,
+            "production": 440.69,
+            "yield": 1870.0
+          }
+        },
+        {
+          "year": "1983-84",
+          "kharif": null,
+          "rabi": {
+            "area": 246.72,
+            "production": 454.76,
+            "yield": 1843.0
+          },
+          "summer": null,
+          "total": {
+            "area": 246.72,
+            "production": 454.76,
+            "yield": 1843.0
+          }
+        },
+        {
+          "year": "1982-83",
+          "kharif": null,
+          "rabi": {
+            "area": 235.67,
+            "production": 427.94,
+            "yield": 1816.0
+          },
+          "summer": null,
+          "total": {
+            "area": 235.67,
+            "production": 427.94,
+            "yield": 1816.0
+          }
+        },
+        {
+          "year": "1981-82",
+          "kharif": null,
+          "rabi": {
+            "area": 221.44,
+            "production": 374.52,
+            "yield": 1691.0
+          },
+          "summer": null,
+          "total": {
+            "area": 221.44,
+            "production": 374.52,
+            "yield": 1691.0
+          }
+        },
+        {
+          "year": "1980-81",
+          "kharif": null,
+          "rabi": {
+            "area": 222.79,
+            "production": 363.13,
+            "yield": 1630.0
+          },
+          "summer": null,
+          "total": {
+            "area": 222.79,
+            "production": 363.13,
+            "yield": 1630.0
+          }
+        },
+        {
+          "year": "1979-80",
+          "kharif": null,
+          "rabi": {
+            "area": 221.72,
+            "production": 318.3,
+            "yield": 1436.0
+          },
+          "summer": null,
+          "total": {
+            "area": 221.72,
+            "production": 318.3,
+            "yield": 1436.0
+          }
+        },
+        {
+          "year": "1978-79",
+          "kharif": null,
+          "rabi": {
+            "area": 226.41,
+            "production": 355.08,
+            "yield": 1568.0
+          },
+          "summer": null,
+          "total": {
+            "area": 226.41,
+            "production": 355.08,
+            "yield": 1568.0
+          }
+        },
+        {
+          "year": "1977-78",
+          "kharif": null,
+          "rabi": {
+            "area": 214.56,
+            "production": 317.49,
+            "yield": 1480.0
+          },
+          "summer": null,
+          "total": {
+            "area": 214.56,
+            "production": 317.49,
+            "yield": 1480.0
+          }
+        },
+        {
+          "year": "1976-77",
+          "kharif": null,
+          "rabi": {
+            "area": 209.22,
+            "production": 290.1,
+            "yield": 1387.0
+          },
+          "summer": null,
+          "total": {
+            "area": 209.22,
+            "production": 290.1,
+            "yield": 1387.0
+          }
+        },
+        {
+          "year": "1975-76",
+          "kharif": null,
+          "rabi": {
+            "area": 204.54,
+            "production": 288.46,
+            "yield": 1410.0
+          },
+          "summer": null,
+          "total": {
+            "area": 204.54,
+            "production": 288.46,
+            "yield": 1410.0
+          }
+        },
+        {
+          "year": "1974-75",
+          "kharif": null,
+          "rabi": {
+            "area": 180.1,
+            "production": 241.04,
+            "yield": 1338.0
+          },
+          "summer": null,
+          "total": {
+            "area": 180.1,
+            "production": 241.04,
+            "yield": 1338.0
+          }
+        },
+        {
+          "year": "1973-74",
+          "kharif": null,
+          "rabi": {
+            "area": 185.83,
+            "production": 217.78,
+            "yield": 1172.0
+          },
+          "summer": null,
+          "total": {
+            "area": 185.83,
+            "production": 217.78,
+            "yield": 1172.0
+          }
+        },
+        {
+          "year": "1972-73",
+          "kharif": null,
+          "rabi": {
+            "area": 194.64,
+            "production": 247.35,
+            "yield": 1271.0
+          },
+          "summer": null,
+          "total": {
+            "area": 194.64,
+            "production": 247.35,
+            "yield": 1271.0
+          }
+        },
+        {
+          "year": "1971-72",
+          "kharif": null,
+          "rabi": {
+            "area": 191.39,
+            "production": 264.1,
+            "yield": 1380.0
+          },
+          "summer": null,
+          "total": {
+            "area": 191.39,
+            "production": 264.1,
+            "yield": 1380.0
+          }
+        },
+        {
+          "year": "1970-71",
+          "kharif": null,
+          "rabi": {
+            "area": 182.41,
+            "production": 238.33,
+            "yield": 1307.0
+          },
+          "summer": null,
+          "total": {
+            "area": 182.41,
+            "production": 238.33,
+            "yield": 1307.0
+          }
+        },
+        {
+          "year": "1969-70",
+          "kharif": null,
+          "rabi": {
+            "area": 166.26,
+            "production": 200.93,
+            "yield": 1209.0
+          },
+          "summer": null,
+          "total": {
+            "area": 166.26,
+            "production": 200.93,
+            "yield": 1209.0
+          }
+        },
+        {
+          "year": "1968-69",
+          "kharif": null,
+          "rabi": {
+            "area": 159.58,
+            "production": 186.52,
+            "yield": 1169.0
+          },
+          "summer": null,
+          "total": {
+            "area": 159.58,
+            "production": 186.52,
+            "yield": 1169.0
+          }
+        },
+        {
+          "year": "1967-68",
+          "kharif": null,
+          "rabi": {
+            "area": 149.98,
+            "production": 165.4,
+            "yield": 1103.0
+          },
+          "summer": null,
+          "total": {
+            "area": 149.98,
+            "production": 165.4,
+            "yield": 1103.0
+          }
+        },
+        {
+          "year": "1966-67",
+          "kharif": null,
+          "rabi": {
+            "area": 128.38,
+            "production": 113.93,
+            "yield": 887.0
+          },
+          "summer": null,
+          "total": {
+            "area": 128.38,
+            "production": 113.93,
+            "yield": 887.0
+          }
+        }
+      ]
+    },
+    "maize": {
+      "name": "Maize",
+      "data": [
+        {
+          "year": "2025-26",
+          "kharif": {
+            "area": 98.61,
+            "production": 305.09,
+            "yield": 3094.0
+          },
+          "rabi": {
+            "area": 34.88,
+            "production": 200.25,
+            "yield": 5740.0
+          },
+          "summer": {
+            "area": 10.58,
+            "production": 45.59,
+            "yield": 4308.0
+          },
+          "total": {
+            "area": 144.08,
+            "production": 550.93,
+            "yield": 3824.0
+          }
+        },
+        {
+          "year": "2024-25",
+          "kharif": {
+            "area": 84.61,
+            "production": 248.08,
+            "yield": 2932.0
+          },
+          "rabi": {
+            "area": 27.8,
+            "production": 147.53,
+            "yield": 5306.0
+          },
+          "summer": {
+            "area": 8.5,
+            "production": 38.47,
+            "yield": 4528.0
+          },
+          "total": {
+            "area": 120.91,
+            "production": 434.09,
+            "yield": 3590.0
+          }
+        },
+        {
+          "year": "2023-24",
+          "kharif": {
+            "area": 83.29,
+            "production": 222.45,
+            "yield": 2671.0
+          },
+          "rabi": {
+            "area": 21.75,
+            "production": 120.28,
+            "yield": 5529.0
+          },
+          "summer": {
+            "area": 7.37,
+            "production": 33.92,
+            "yield": 4603.0
+          },
+          "total": {
+            "area": 112.41,
+            "production": 376.65,
+            "yield": 3351.0
+          }
+        },
+        {
+          "year": "2022-23",
+          "kharif": {
+            "area": 80.53,
+            "production": 236.74,
+            "yield": 2940.0
+          },
+          "rabi": {
+            "area": 21.83,
+            "production": 116.9,
+            "yield": 5355.0
+          },
+          "summer": {
+            "area": 5.08,
+            "production": 27.21,
+            "yield": 5361.0
+          },
+          "total": {
+            "area": 107.44,
+            "production": 380.85,
+            "yield": 3545.0
+          }
+        },
+        {
+          "year": "2021-22",
+          "kharif": {
+            "area": 77.85,
+            "production": 226.81,
+            "yield": 2914.0
+          },
+          "rabi": {
+            "area": 21.73,
+            "production": 110.49,
+            "yield": 5084.0
+          },
+          "summer": null,
+          "total": {
+            "area": 99.58,
+            "production": 337.3,
+            "yield": 3387.0
+          }
+        },
+        {
+          "year": "2020-21",
+          "kharif": {
+            "area": 77.55,
+            "production": 215.55,
+            "yield": 2779.0
+          },
+          "rabi": {
+            "area": 21.37,
+            "production": 100.92,
+            "yield": 4723.0
+          },
+          "summer": null,
+          "total": {
+            "area": 98.92,
+            "production": 316.47,
+            "yield": 3199.0
+          }
+        },
+        {
+          "year": "2019-20",
+          "kharif": {
+            "area": 75.53,
+            "production": 194.29,
+            "yield": 2572.0
+          },
+          "rabi": {
+            "area": 20.16,
+            "production": 93.37,
+            "yield": 4631.0
+          },
+          "summer": null,
+          "total": {
+            "area": 95.69,
+            "production": 287.66,
+            "yield": 3006.0
+          }
+        },
+        {
+          "year": "2018-19",
+          "kharif": {
+            "area": 73.31,
+            "production": 194.14,
+            "yield": 2648.0
+          },
+          "rabi": {
+            "area": 16.97,
+            "production": 83.02,
+            "yield": 4893.0
+          },
+          "summer": null,
+          "total": {
+            "area": 90.27,
+            "production": 277.15,
+            "yield": 3070.0
+          }
+        },
+        {
+          "year": "2017-18",
+          "kharif": {
+            "area": 74.34,
+            "production": 201.18,
+            "yield": 2706.0
+          },
+          "rabi": {
+            "area": 19.46,
+            "production": 86.34,
+            "yield": 4436.0
+          },
+          "summer": null,
+          "total": {
+            "area": 93.8,
+            "production": 287.53,
+            "yield": 3065.0
+          }
+        },
+        {
+          "year": "2016-17",
+          "kharif": {
+            "area": 78.42,
+            "production": 189.19,
+            "yield": 2413.0
+          },
+          "rabi": {
+            "area": 17.92,
+            "production": 69.81,
+            "yield": 3897.0
+          },
+          "summer": null,
+          "total": {
+            "area": 96.33,
+            "production": 259.0,
+            "yield": 2689.0
+          }
+        },
+        {
+          "year": "2015-16",
+          "kharif": {
+            "area": 71.8,
+            "production": 160.53,
+            "yield": 2236.0
+          },
+          "rabi": {
+            "area": 16.26,
+            "production": 65.14,
+            "yield": 4006.0
+          },
+          "summer": null,
+          "total": {
+            "area": 88.06,
+            "production": 225.67,
+            "yield": 2563.0
+          }
+        },
+        {
+          "year": "2014-15",
+          "kharif": {
+            "area": 75.63,
+            "production": 170.14,
+            "yield": 2249.0
+          },
+          "rabi": {
+            "area": 16.22,
+            "production": 71.59,
+            "yield": 4414.0
+          },
+          "summer": null,
+          "total": {
+            "area": 91.85,
+            "production": 241.73,
+            "yield": 2632.0
+          }
+        },
+        {
+          "year": "2013-14",
+          "kharif": {
+            "area": 73.1,
+            "production": 171.45,
+            "yield": 2346.0
+          },
+          "rabi": {
+            "area": 17.57,
+            "production": 71.14,
+            "yield": 4050.0
+          },
+          "summer": null,
+          "total": {
+            "area": 90.66,
+            "production": 242.6,
+            "yield": 2676.0
+          }
+        },
+        {
+          "year": "2012-13",
+          "kharif": {
+            "area": 72.14,
+            "production": 162.04,
+            "yield": 2246.0
+          },
+          "rabi": {
+            "area": 14.58,
+            "production": 60.54,
+            "yield": 4152.0
+          },
+          "summer": null,
+          "total": {
+            "area": 86.73,
+            "production": 222.58,
+            "yield": 2566.0
+          }
+        },
+        {
+          "year": "2011-12",
+          "kharif": {
+            "area": 73.81,
+            "production": 164.86,
+            "yield": 2234.0
+          },
+          "rabi": {
+            "area": 14.01,
+            "production": 52.73,
+            "yield": 3765.0
+          },
+          "summer": null,
+          "total": {
+            "area": 87.82,
+            "production": 217.59,
+            "yield": 2478.0
+          }
+        },
+        {
+          "year": "2010-11",
+          "kharif": {
+            "area": 72.82,
+            "production": 166.37,
+            "yield": 2285.0
+          },
+          "rabi": {
+            "area": 12.71,
+            "production": 50.88,
+            "yield": 4003.0
+          },
+          "summer": null,
+          "total": {
+            "area": 85.53,
+            "production": 217.26,
+            "yield": 2540.0
+          }
+        },
+        {
+          "year": "2009-10",
+          "kharif": {
+            "area": 70.63,
+            "production": 122.93,
+            "yield": 1740.0
+          },
+          "rabi": {
+            "area": 11.98,
+            "production": 44.26,
+            "yield": 3694.0
+          },
+          "summer": null,
+          "total": {
+            "area": 82.62,
+            "production": 167.19,
+            "yield": 2024.0
+          }
+        },
+        {
+          "year": "2008-09",
+          "kharif": {
+            "area": 68.95,
+            "production": 141.21,
+            "yield": 2048.0
+          },
+          "rabi": {
+            "area": 12.79,
+            "production": 56.11,
+            "yield": 4387.0
+          },
+          "summer": null,
+          "total": {
+            "area": 81.74,
+            "production": 197.31,
+            "yield": 2414.0
+          }
+        },
+        {
+          "year": "2007-08",
+          "kharif": {
+            "area": 71.19,
+            "production": 151.07,
+            "yield": 2122.0
+          },
+          "rabi": {
+            "area": 9.99,
+            "production": 38.49,
+            "yield": 3854.0
+          },
+          "summer": null,
+          "total": {
+            "area": 81.17,
+            "production": 189.55,
+            "yield": 2335.0
+          }
+        },
+        {
+          "year": "2006-07",
+          "kharif": {
+            "area": 69.6,
+            "production": 115.56,
+            "yield": 1660.0
+          },
+          "rabi": {
+            "area": 9.34,
+            "production": 35.41,
+            "yield": 3793.0
+          },
+          "summer": null,
+          "total": {
+            "area": 78.94,
+            "production": 150.97,
+            "yield": 1912.0
+          }
+        },
+        {
+          "year": "2005-06",
+          "kharif": {
+            "area": 67.58,
+            "production": 121.56,
+            "yield": 1799.0
+          },
+          "rabi": {
+            "area": 8.3,
+            "production": 25.54,
+            "yield": 3076.0
+          },
+          "summer": null,
+          "total": {
+            "area": 75.88,
+            "production": 147.1,
+            "yield": 1938.0
+          }
+        },
+        {
+          "year": "2004-05",
+          "kharif": {
+            "area": 65.94,
+            "production": 114.76,
+            "yield": 1740.0
+          },
+          "rabi": {
+            "area": 8.36,
+            "production": 26.96,
+            "yield": 3224.0
+          },
+          "summer": null,
+          "total": {
+            "area": 74.3,
+            "production": 141.72,
+            "yield": 1907.0
+          }
+        },
+        {
+          "year": "2003-04",
+          "kharif": {
+            "area": 65.9,
+            "production": 127.34,
+            "yield": 1932.0
+          },
+          "rabi": {
+            "area": 7.53,
+            "production": 22.5,
+            "yield": 2987.0
+          },
+          "summer": null,
+          "total": {
+            "area": 73.43,
+            "production": 149.84,
+            "yield": 2041.0
+          }
+        },
+        {
+          "year": "2002-03",
+          "kharif": {
+            "area": 59.76,
+            "production": 92.72,
+            "yield": 1552.0
+          },
+          "rabi": {
+            "area": 6.59,
+            "production": 18.79,
+            "yield": 2851.0
+          },
+          "summer": null,
+          "total": {
+            "area": 66.35,
+            "production": 111.52,
+            "yield": 1681.0
+          }
+        },
+        {
+          "year": "2001-02",
+          "kharif": {
+            "area": 59.34,
+            "production": 112.48,
+            "yield": 1896.0
+          },
+          "rabi": {
+            "area": 6.48,
+            "production": 19.12,
+            "yield": 2952.0
+          },
+          "summer": null,
+          "total": {
+            "area": 65.82,
+            "production": 131.6,
+            "yield": 2000.0
+          }
+        },
+        {
+          "year": "2000-01",
+          "kharif": {
+            "area": 59.87,
+            "production": 102.2,
+            "yield": 1707.0
+          },
+          "rabi": {
+            "area": 6.24,
+            "production": 18.24,
+            "yield": 2921.0
+          },
+          "summer": null,
+          "total": {
+            "area": 66.11,
+            "production": 120.43,
+            "yield": 1822.0
+          }
+        },
+        {
+          "year": "1999-00",
+          "kharif": {
+            "area": 57.27,
+            "production": 97.06,
+            "yield": 1695.0
+          },
+          "rabi": {
+            "area": 6.95,
+            "production": 18.03,
+            "yield": 2594.0
+          },
+          "summer": null,
+          "total": {
+            "area": 64.22,
+            "production": 115.1,
+            "yield": 1792.0
+          }
+        },
+        {
+          "year": "1998-99",
+          "kharif": {
+            "area": 55.91,
+            "production": 95.39,
+            "yield": 1706.0
+          },
+          "rabi": {
+            "area": 6.13,
+            "production": 16.09,
+            "yield": 2626.0
+          },
+          "summer": null,
+          "total": {
+            "area": 62.04,
+            "production": 111.48,
+            "yield": 1797.0
+          }
+        },
+        {
+          "year": "1997-98",
+          "kharif": {
+            "area": 57.62,
+            "production": 94.3,
+            "yield": 1637.0
+          },
+          "rabi": {
+            "area": 5.6,
+            "production": 13.89,
+            "yield": 2482.0
+          },
+          "summer": null,
+          "total": {
+            "area": 63.21,
+            "production": 108.19,
+            "yield": 1712.0
+          }
+        },
+        {
+          "year": "1996-97",
+          "kharif": {
+            "area": 57.13,
+            "production": 91.74,
+            "yield": 1606.0
+          },
+          "rabi": {
+            "area": 5.47,
+            "production": 15.95,
+            "yield": 2917.0
+          },
+          "summer": null,
+          "total": {
+            "area": 62.6,
+            "production": 107.7,
+            "yield": 1720.0
+          }
+        },
+        {
+          "year": "1995-96",
+          "kharif": {
+            "area": 55.2,
+            "production": 82.8,
+            "yield": 1500.0
+          },
+          "rabi": {
+            "area": 4.59,
+            "production": 11.84,
+            "yield": 2578.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.79,
+            "production": 94.64,
+            "yield": 1583.0
+          }
+        },
+        {
+          "year": "1994-95",
+          "kharif": {
+            "area": 55.14,
+            "production": 76.43,
+            "yield": 1386.0
+          },
+          "rabi": {
+            "area": 6.22,
+            "production": 12.41,
+            "yield": 1996.0
+          },
+          "summer": null,
+          "total": {
+            "area": 61.36,
+            "production": 88.84,
+            "yield": 1448.0
+          }
+        },
+        {
+          "year": "1993-94",
+          "kharif": {
+            "area": 55.86,
+            "production": 85.28,
+            "yield": 1527.0
+          },
+          "rabi": {
+            "area": 4.09,
+            "production": 10.73,
+            "yield": 2625.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.95,
+            "production": 96.01,
+            "yield": 1602.0
+          }
+        },
+        {
+          "year": "1992-93",
+          "kharif": {
+            "area": 55.11,
+            "production": 89.43,
+            "yield": 1623.0
+          },
+          "rabi": {
+            "area": 4.52,
+            "production": 10.51,
+            "yield": 2328.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.63,
+            "production": 99.94,
+            "yield": 1676.0
+          }
+        },
+        {
+          "year": "1991-92",
+          "kharif": {
+            "area": 58.59,
+            "production": 80.64,
+            "yield": 1376.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.59,
+            "production": 80.64,
+            "yield": 1376.0
+          }
+        },
+        {
+          "year": "1990-91",
+          "kharif": {
+            "area": 59.04,
+            "production": 89.62,
+            "yield": 1518.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.04,
+            "production": 89.62,
+            "yield": 1518.0
+          }
+        },
+        {
+          "year": "1989-90",
+          "kharif": {
+            "area": 59.15,
+            "production": 96.51,
+            "yield": 1632.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.15,
+            "production": 96.51,
+            "yield": 1632.0
+          }
+        },
+        {
+          "year": "1988-89",
+          "kharif": {
+            "area": 58.97,
+            "production": 82.29,
+            "yield": 1395.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.97,
+            "production": 82.29,
+            "yield": 1395.0
+          }
+        },
+        {
+          "year": "1987-88",
+          "kharif": {
+            "area": 55.61,
+            "production": 57.21,
+            "yield": 1029.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 55.61,
+            "production": 57.21,
+            "yield": 1029.0
+          }
+        },
+        {
+          "year": "1986-87",
+          "kharif": {
+            "area": 59.23,
+            "production": 75.93,
+            "yield": 1282.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.23,
+            "production": 75.93,
+            "yield": 1282.0
+          }
+        },
+        {
+          "year": "1985-86",
+          "kharif": {
+            "area": 57.97,
+            "production": 66.44,
+            "yield": 1146.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 57.97,
+            "production": 66.44,
+            "yield": 1146.0
+          }
+        },
+        {
+          "year": "1984-85",
+          "kharif": {
+            "area": 58.0,
+            "production": 84.42,
+            "yield": 1456.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.0,
+            "production": 84.42,
+            "yield": 1456.0
+          }
+        },
+        {
+          "year": "1983-84",
+          "kharif": {
+            "area": 58.59,
+            "production": 79.22,
+            "yield": 1352.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.59,
+            "production": 79.22,
+            "yield": 1352.0
+          }
+        },
+        {
+          "year": "1982-83",
+          "kharif": {
+            "area": 57.2,
+            "production": 65.49,
+            "yield": 1145.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 57.2,
+            "production": 65.49,
+            "yield": 1145.0
+          }
+        },
+        {
+          "year": "1981-82",
+          "kharif": {
+            "area": 59.35,
+            "production": 68.97,
+            "yield": 1162.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.35,
+            "production": 68.97,
+            "yield": 1162.0
+          }
+        },
+        {
+          "year": "1980-81",
+          "kharif": {
+            "area": 60.05,
+            "production": 69.57,
+            "yield": 1159.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 60.05,
+            "production": 69.57,
+            "yield": 1159.0
+          }
+        },
+        {
+          "year": "1979-80",
+          "kharif": {
+            "area": 57.21,
+            "production": 56.03,
+            "yield": 979.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 57.21,
+            "production": 56.03,
+            "yield": 979.0
+          }
+        },
+        {
+          "year": "1978-79",
+          "kharif": {
+            "area": 57.6,
+            "production": 61.99,
+            "yield": 1076.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 57.6,
+            "production": 61.99,
+            "yield": 1076.0
+          }
+        },
+        {
+          "year": "1977-78",
+          "kharif": {
+            "area": 56.82,
+            "production": 59.73,
+            "yield": 1051.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 56.82,
+            "production": 59.73,
+            "yield": 1051.0
+          }
+        },
+        {
+          "year": "1976-77",
+          "kharif": {
+            "area": 60.0,
+            "production": 63.61,
+            "yield": 1060.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 60.0,
+            "production": 63.61,
+            "yield": 1060.0
+          }
+        },
+        {
+          "year": "1975-76",
+          "kharif": {
+            "area": 60.31,
+            "production": 72.56,
+            "yield": 1203.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 60.31,
+            "production": 72.56,
+            "yield": 1203.0
+          }
+        },
+        {
+          "year": "1974-75",
+          "kharif": {
+            "area": 58.63,
+            "production": 55.59,
+            "yield": 948.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.63,
+            "production": 55.59,
+            "yield": 948.0
+          }
+        },
+        {
+          "year": "1973-74",
+          "kharif": {
+            "area": 60.15,
+            "production": 58.04,
+            "yield": 965.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 60.15,
+            "production": 58.04,
+            "yield": 965.0
+          }
+        },
+        {
+          "year": "1972-73",
+          "kharif": {
+            "area": 58.38,
+            "production": 63.89,
+            "yield": 1094.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.38,
+            "production": 63.89,
+            "yield": 1094.0
+          }
+        },
+        {
+          "year": "1971-72",
+          "kharif": {
+            "area": 56.68,
+            "production": 51.01,
+            "yield": 900.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 56.68,
+            "production": 51.01,
+            "yield": 900.0
+          }
+        },
+        {
+          "year": "1970-71",
+          "kharif": {
+            "area": 58.52,
+            "production": 74.86,
+            "yield": 1279.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.52,
+            "production": 74.86,
+            "yield": 1279.0
+          }
+        },
+        {
+          "year": "1969-70",
+          "kharif": {
+            "area": 58.62,
+            "production": 56.74,
+            "yield": 968.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 58.62,
+            "production": 56.74,
+            "yield": 968.0
+          }
+        },
+        {
+          "year": "1968-69",
+          "kharif": {
+            "area": 57.16,
+            "production": 57.01,
+            "yield": 997.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 57.16,
+            "production": 57.01,
+            "yield": 997.0
+          }
+        },
+        {
+          "year": "1967-68",
+          "kharif": {
+            "area": 55.83,
+            "production": 62.69,
+            "yield": 1123.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 55.83,
+            "production": 62.69,
+            "yield": 1123.0
+          }
+        },
+        {
+          "year": "1966-67",
+          "kharif": {
+            "area": 50.74,
+            "production": 48.94,
+            "yield": 964.0
+          },
+          "rabi": {
+            "area": 0.0,
+            "production": 0.0,
+            "yield": 0.0
+          },
+          "summer": null,
+          "total": {
+            "area": 50.74,
+            "production": 48.94,
+            "yield": 964.0
+          }
+        }
+      ]
+    },
+    "sugarcane": {
+      "name": "Sugarcane",
+      "data": [
+        {
+          "year": "2025-26",
+          "kharif": {
+            "area": 58.84,
+            "production": 5000.63,
+            "yield": 84987.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 58.84,
+            "production": 5000.63,
+            "yield": 84987.0
+          }
+        },
+        {
+          "year": "2024-25",
+          "kharif": {
+            "area": 54.5,
+            "production": 4546.11,
+            "yield": 83416.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 54.5,
+            "production": 4546.11,
+            "yield": 83416.0
+          }
+        },
+        {
+          "year": "2023-24",
+          "kharif": {
+            "area": 57.4,
+            "production": 4531.58,
+            "yield": 78953.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 57.4,
+            "production": 4531.58,
+            "yield": 78953.0
+          }
+        },
+        {
+          "year": "2022-23",
+          "kharif": {
+            "area": 58.85,
+            "production": 4905.33,
+            "yield": 83349.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 58.85,
+            "production": 4905.33,
+            "yield": 83349.0
+          }
+        },
+        {
+          "year": "2021-22",
+          "kharif": {
+            "area": 51.75,
+            "production": 4394.25,
+            "yield": 84906.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 51.75,
+            "production": 4394.25,
+            "yield": 84906.0
+          }
+        },
+        {
+          "year": "2020-21",
+          "kharif": {
+            "area": 48.51,
+            "production": 4053.99,
+            "yield": 83566.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 48.51,
+            "production": 4053.99,
+            "yield": 83566.0
+          }
+        },
+        {
+          "year": "2019-20",
+          "kharif": {
+            "area": 46.03,
+            "production": 3705.0,
+            "yield": 80497.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 46.03,
+            "production": 3705.0,
+            "yield": 80497.0
+          }
+        },
+        {
+          "year": "2018-19",
+          "kharif": {
+            "area": 50.61,
+            "production": 4054.16,
+            "yield": 80105.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 50.61,
+            "production": 4054.16,
+            "yield": 80105.0
+          }
+        },
+        {
+          "year": "2017-18",
+          "kharif": {
+            "area": 47.37,
+            "production": 3799.05,
+            "yield": 80198.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 47.37,
+            "production": 3799.05,
+            "yield": 80198.0
+          }
+        },
+        {
+          "year": "2016-17",
+          "kharif": {
+            "area": 44.36,
+            "production": 3060.69,
+            "yield": 69001.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 44.36,
+            "production": 3060.69,
+            "yield": 69001.0
+          }
+        },
+        {
+          "year": "2015-16",
+          "kharif": {
+            "area": 49.27,
+            "production": 3484.48,
+            "yield": 70720.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 49.27,
+            "production": 3484.48,
+            "yield": 70720.0
+          }
+        },
+        {
+          "year": "2014-15",
+          "kharif": {
+            "area": 50.67,
+            "production": 3623.33,
+            "yield": 71511.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 50.67,
+            "production": 3623.33,
+            "yield": 71511.0
+          }
+        },
+        {
+          "year": "2013-14",
+          "kharif": {
+            "area": 49.93,
+            "production": 3521.42,
+            "yield": 70522.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 49.93,
+            "production": 3521.42,
+            "yield": 70522.0
+          }
+        },
+        {
+          "year": "2012-13",
+          "kharif": {
+            "area": 49.99,
+            "production": 3412.0,
+            "yield": 68254.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 49.99,
+            "production": 3412.0,
+            "yield": 68254.0
+          }
+        },
+        {
+          "year": "2011-12",
+          "kharif": {
+            "area": 50.38,
+            "production": 3610.36,
+            "yield": 71668.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 50.38,
+            "production": 3610.36,
+            "yield": 71668.0
+          }
+        },
+        {
+          "year": "2010-11",
+          "kharif": {
+            "area": 48.85,
+            "production": 3423.82,
+            "yield": 70091.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 48.85,
+            "production": 3423.82,
+            "yield": 70091.0
+          }
+        },
+        {
+          "year": "2009-10",
+          "kharif": {
+            "area": 41.75,
+            "production": 2923.02,
+            "yield": 70020.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 41.75,
+            "production": 2923.02,
+            "yield": 70020.0
+          }
+        },
+        {
+          "year": "2008-09",
+          "kharif": {
+            "area": 44.15,
+            "production": 2850.29,
+            "yield": 64553.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 44.15,
+            "production": 2850.29,
+            "yield": 64553.0
+          }
+        },
+        {
+          "year": "2007-08",
+          "kharif": {
+            "area": 50.55,
+            "production": 3481.88,
+            "yield": 68877.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 50.55,
+            "production": 3481.88,
+            "yield": 68877.0
+          }
+        },
+        {
+          "year": "2006-07",
+          "kharif": {
+            "area": 51.51,
+            "production": 3555.2,
+            "yield": 69022.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 51.51,
+            "production": 3555.2,
+            "yield": 69022.0
+          }
+        },
+        {
+          "year": "2005-06",
+          "kharif": {
+            "area": 42.02,
+            "production": 2811.72,
+            "yield": 66919.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 42.02,
+            "production": 2811.72,
+            "yield": 66919.0
+          }
+        },
+        {
+          "year": "2004-05",
+          "kharif": {
+            "area": 36.62,
+            "production": 2370.88,
+            "yield": 64752.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 36.62,
+            "production": 2370.88,
+            "yield": 64752.0
+          }
+        },
+        {
+          "year": "2003-04",
+          "kharif": {
+            "area": 39.38,
+            "production": 2338.62,
+            "yield": 59380.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 39.38,
+            "production": 2338.62,
+            "yield": 59380.0
+          }
+        },
+        {
+          "year": "2002-03",
+          "kharif": {
+            "area": 45.2,
+            "production": 2873.83,
+            "yield": 63576.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 45.2,
+            "production": 2873.83,
+            "yield": 63576.0
+          }
+        },
+        {
+          "year": "2001-02",
+          "kharif": {
+            "area": 44.12,
+            "production": 2972.08,
+            "yield": 67370.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 44.12,
+            "production": 2972.08,
+            "yield": 67370.0
+          }
+        },
+        {
+          "year": "2000-01",
+          "kharif": {
+            "area": 43.16,
+            "production": 2959.6,
+            "yield": 68578.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 43.16,
+            "production": 2959.6,
+            "yield": 68578.0
+          }
+        },
+        {
+          "year": "1999-00",
+          "kharif": {
+            "area": 42.2,
+            "production": 2993.2,
+            "yield": 70934.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 42.2,
+            "production": 2993.2,
+            "yield": 70934.0
+          }
+        },
+        {
+          "year": "1998-99",
+          "kharif": {
+            "area": 40.55,
+            "production": 2887.2,
+            "yield": 71203.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 40.55,
+            "production": 2887.2,
+            "yield": 71203.0
+          }
+        },
+        {
+          "year": "1997-98",
+          "kharif": {
+            "area": 39.3,
+            "production": 2795.4,
+            "yield": 71133.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 39.3,
+            "production": 2795.4,
+            "yield": 71133.0
+          }
+        },
+        {
+          "year": "1996-97",
+          "kharif": {
+            "area": 41.74,
+            "production": 2775.6,
+            "yield": 66496.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 41.74,
+            "production": 2775.6,
+            "yield": 66496.0
+          }
+        },
+        {
+          "year": "1995-96",
+          "kharif": {
+            "area": 41.47,
+            "production": 2811.0,
+            "yield": 67777.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 41.47,
+            "production": 2811.0,
+            "yield": 67777.0
+          }
+        },
+        {
+          "year": "1994-95",
+          "kharif": {
+            "area": 38.67,
+            "production": 2755.4,
+            "yield": 71258.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 38.67,
+            "production": 2755.4,
+            "yield": 71258.0
+          }
+        },
+        {
+          "year": "1993-94",
+          "kharif": {
+            "area": 34.22,
+            "production": 2296.59,
+            "yield": 67120.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 34.22,
+            "production": 2296.59,
+            "yield": 67120.0
+          }
+        },
+        {
+          "year": "1992-93",
+          "kharif": {
+            "area": 35.73,
+            "production": 2280.33,
+            "yield": 63827.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.73,
+            "production": 2280.33,
+            "yield": 63827.0
+          }
+        },
+        {
+          "year": "1991-92",
+          "kharif": {
+            "area": 38.44,
+            "production": 2539.95,
+            "yield": 66069.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 38.44,
+            "production": 2539.95,
+            "yield": 66069.0
+          }
+        },
+        {
+          "year": "1990-91",
+          "kharif": {
+            "area": 36.86,
+            "production": 2410.46,
+            "yield": 65395.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 36.86,
+            "production": 2410.46,
+            "yield": 65395.0
+          }
+        },
+        {
+          "year": "1989-90",
+          "kharif": {
+            "area": 34.38,
+            "production": 2255.69,
+            "yield": 65612.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 34.38,
+            "production": 2255.69,
+            "yield": 65612.0
+          }
+        },
+        {
+          "year": "1988-89",
+          "kharif": {
+            "area": 33.29,
+            "production": 2030.37,
+            "yield": 60992.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.29,
+            "production": 2030.37,
+            "yield": 60992.0
+          }
+        },
+        {
+          "year": "1987-88",
+          "kharif": {
+            "area": 32.79,
+            "production": 1957.37,
+            "yield": 59701.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 32.79,
+            "production": 1957.37,
+            "yield": 59701.0
+          }
+        },
+        {
+          "year": "1986-87",
+          "kharif": {
+            "area": 30.79,
+            "production": 1860.9,
+            "yield": 60443.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 30.79,
+            "production": 1860.9,
+            "yield": 60443.0
+          }
+        },
+        {
+          "year": "1985-86",
+          "kharif": {
+            "area": 28.49,
+            "production": 1706.48,
+            "yield": 59893.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 28.49,
+            "production": 1706.48,
+            "yield": 59893.0
+          }
+        },
+        {
+          "year": "1984-85",
+          "kharif": {
+            "area": 29.53,
+            "production": 1703.19,
+            "yield": 57669.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 29.53,
+            "production": 1703.19,
+            "yield": 57669.0
+          }
+        },
+        {
+          "year": "1983-84",
+          "kharif": {
+            "area": 31.1,
+            "production": 1740.76,
+            "yield": 55980.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 31.1,
+            "production": 1740.76,
+            "yield": 55980.0
+          }
+        },
+        {
+          "year": "1982-83",
+          "kharif": {
+            "area": 33.58,
+            "production": 1895.06,
+            "yield": 56441.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.58,
+            "production": 1895.06,
+            "yield": 56441.0
+          }
+        },
+        {
+          "year": "1981-82",
+          "kharif": {
+            "area": 31.93,
+            "production": 1863.58,
+            "yield": 58359.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 31.93,
+            "production": 1863.58,
+            "yield": 58359.0
+          }
+        },
+        {
+          "year": "1980-81",
+          "kharif": {
+            "area": 26.67,
+            "production": 1542.48,
+            "yield": 57844.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.67,
+            "production": 1542.48,
+            "yield": 57844.0
+          }
+        },
+        {
+          "year": "1979-80",
+          "kharif": {
+            "area": 26.1,
+            "production": 1288.33,
+            "yield": 49358.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.1,
+            "production": 1288.33,
+            "yield": 49358.0
+          }
+        },
+        {
+          "year": "1978-79",
+          "kharif": {
+            "area": 30.88,
+            "production": 1516.55,
+            "yield": 49114.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 30.88,
+            "production": 1516.55,
+            "yield": 49114.0
+          }
+        },
+        {
+          "year": "1977-78",
+          "kharif": {
+            "area": 31.51,
+            "production": 1769.66,
+            "yield": 56160.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 31.51,
+            "production": 1769.66,
+            "yield": 56160.0
+          }
+        },
+        {
+          "year": "1976-77",
+          "kharif": {
+            "area": 28.65,
+            "production": 1530.07,
+            "yield": 53400.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 28.65,
+            "production": 1530.07,
+            "yield": 53400.0
+          }
+        },
+        {
+          "year": "1975-76",
+          "kharif": {
+            "area": 27.62,
+            "production": 1406.04,
+            "yield": 50903.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 27.62,
+            "production": 1406.04,
+            "yield": 50903.0
+          }
+        },
+        {
+          "year": "1974-75",
+          "kharif": {
+            "area": 28.94,
+            "production": 1442.89,
+            "yield": 49855.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 28.94,
+            "production": 1442.89,
+            "yield": 49855.0
+          }
+        },
+        {
+          "year": "1973-74",
+          "kharif": {
+            "area": 27.52,
+            "production": 1408.05,
+            "yield": 51163.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 27.52,
+            "production": 1408.05,
+            "yield": 51163.0
+          }
+        },
+        {
+          "year": "1972-73",
+          "kharif": {
+            "area": 24.52,
+            "production": 1248.67,
+            "yield": 50933.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 24.52,
+            "production": 1248.67,
+            "yield": 50933.0
+          }
+        },
+        {
+          "year": "1971-72",
+          "kharif": {
+            "area": 23.9,
+            "production": 1135.7,
+            "yield": 47511.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 23.9,
+            "production": 1135.7,
+            "yield": 47511.0
+          }
+        },
+        {
+          "year": "1970-71",
+          "kharif": {
+            "area": 26.15,
+            "production": 1263.68,
+            "yield": 48322.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.15,
+            "production": 1263.68,
+            "yield": 48322.0
+          }
+        },
+        {
+          "year": "1969-70",
+          "kharif": {
+            "area": 27.49,
+            "production": 1350.24,
+            "yield": 49121.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 27.49,
+            "production": 1350.24,
+            "yield": 49121.0
+          }
+        },
+        {
+          "year": "1968-69",
+          "kharif": {
+            "area": 24.61,
+            "production": 1175.72,
+            "yield": 47780.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 24.61,
+            "production": 1175.72,
+            "yield": 47780.0
+          }
+        },
+        {
+          "year": "1967-68",
+          "kharif": {
+            "area": 20.47,
+            "production": 955.0,
+            "yield": 46665.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 20.47,
+            "production": 955.0,
+            "yield": 46665.0
+          }
+        },
+        {
+          "year": "1966-67",
+          "kharif": {
+            "area": 23.01,
+            "production": 928.26,
+            "yield": 40336.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 23.01,
+            "production": 928.26,
+            "yield": 40336.0
+          }
+        }
+      ]
+    },
+    "tur": {
+      "name": "Tur",
+      "data": [
+        {
+          "year": "2025-26",
+          "kharif": {
+            "area": 44.6,
+            "production": 35.92,
+            "yield": 805.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 44.6,
+            "production": 35.92,
+            "yield": 805.0
+          }
+        },
+        {
+          "year": "2024-25",
+          "kharif": {
+            "area": 43.36,
+            "production": 36.24,
+            "yield": 836.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 43.36,
+            "production": 36.24,
+            "yield": 836.0
+          }
+        },
+        {
+          "year": "2023-24",
+          "kharif": {
+            "area": 41.31,
+            "production": 34.17,
+            "yield": 827.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 41.31,
+            "production": 34.17,
+            "yield": 827.0
+          }
+        },
+        {
+          "year": "2022-23",
+          "kharif": {
+            "area": 40.68,
+            "production": 33.12,
+            "yield": 814.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 40.68,
+            "production": 33.12,
+            "yield": 814.0
+          }
+        },
+        {
+          "year": "2021-22",
+          "kharif": {
+            "area": 49.0,
+            "production": 42.2,
+            "yield": 861.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 49.0,
+            "production": 42.2,
+            "yield": 861.0
+          }
+        },
+        {
+          "year": "2020-21",
+          "kharif": {
+            "area": 47.24,
+            "production": 43.16,
+            "yield": 914.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 47.24,
+            "production": 43.16,
+            "yield": 914.0
+          }
+        },
+        {
+          "year": "2019-20",
+          "kharif": {
+            "area": 45.32,
+            "production": 38.92,
+            "yield": 859.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 45.32,
+            "production": 38.92,
+            "yield": 859.0
+          }
+        },
+        {
+          "year": "2018-19",
+          "kharif": {
+            "area": 45.5,
+            "production": 33.15,
+            "yield": 729.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 45.5,
+            "production": 33.15,
+            "yield": 729.0
+          }
+        },
+        {
+          "year": "2017-18",
+          "kharif": {
+            "area": 44.38,
+            "production": 42.9,
+            "yield": 967.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 44.38,
+            "production": 42.9,
+            "yield": 967.0
+          }
+        },
+        {
+          "year": "2016-17",
+          "kharif": {
+            "area": 53.38,
+            "production": 48.73,
+            "yield": 913.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 53.38,
+            "production": 48.73,
+            "yield": 913.0
+          }
+        },
+        {
+          "year": "2015-16",
+          "kharif": {
+            "area": 39.63,
+            "production": 25.61,
+            "yield": 646.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 39.63,
+            "production": 25.61,
+            "yield": 646.0
+          }
+        },
+        {
+          "year": "2014-15",
+          "kharif": {
+            "area": 38.54,
+            "production": 28.07,
+            "yield": 729.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 38.54,
+            "production": 28.07,
+            "yield": 729.0
+          }
+        },
+        {
+          "year": "2013-14",
+          "kharif": {
+            "area": 39.04,
+            "production": 31.74,
+            "yield": 813.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 39.04,
+            "production": 31.74,
+            "yield": 813.0
+          }
+        },
+        {
+          "year": "2012-13",
+          "kharif": {
+            "area": 38.93,
+            "production": 30.23,
+            "yield": 776.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 38.93,
+            "production": 30.23,
+            "yield": 776.0
+          }
+        },
+        {
+          "year": "2011-12",
+          "kharif": {
+            "area": 40.07,
+            "production": 26.54,
+            "yield": 662.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 40.07,
+            "production": 26.54,
+            "yield": 662.0
+          }
+        },
+        {
+          "year": "2010-11",
+          "kharif": {
+            "area": 43.67,
+            "production": 28.61,
+            "yield": 655.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 43.67,
+            "production": 28.61,
+            "yield": 655.0
+          }
+        },
+        {
+          "year": "2009-10",
+          "kharif": {
+            "area": 34.66,
+            "production": 24.65,
+            "yield": 711.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 34.66,
+            "production": 24.65,
+            "yield": 711.0
+          }
+        },
+        {
+          "year": "2008-09",
+          "kharif": {
+            "area": 33.78,
+            "production": 22.66,
+            "yield": 671.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.78,
+            "production": 22.66,
+            "yield": 671.0
+          }
+        },
+        {
+          "year": "2007-08",
+          "kharif": {
+            "area": 37.26,
+            "production": 30.76,
+            "yield": 826.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 37.26,
+            "production": 30.76,
+            "yield": 826.0
+          }
+        },
+        {
+          "year": "2006-07",
+          "kharif": {
+            "area": 35.62,
+            "production": 23.14,
+            "yield": 650.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.62,
+            "production": 23.14,
+            "yield": 650.0
+          }
+        },
+        {
+          "year": "2005-06",
+          "kharif": {
+            "area": 35.81,
+            "production": 27.38,
+            "yield": 765.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.81,
+            "production": 27.38,
+            "yield": 765.0
+          }
+        },
+        {
+          "year": "2004-05",
+          "kharif": {
+            "area": 35.19,
+            "production": 23.47,
+            "yield": 667.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.19,
+            "production": 23.47,
+            "yield": 667.0
+          }
+        },
+        {
+          "year": "2003-04",
+          "kharif": {
+            "area": 35.16,
+            "production": 23.56,
+            "yield": 670.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.16,
+            "production": 23.56,
+            "yield": 670.0
+          }
+        },
+        {
+          "year": "2002-03",
+          "kharif": {
+            "area": 33.59,
+            "production": 21.86,
+            "yield": 651.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.59,
+            "production": 21.86,
+            "yield": 651.0
+          }
+        },
+        {
+          "year": "2001-02",
+          "kharif": {
+            "area": 33.28,
+            "production": 22.6,
+            "yield": 679.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.28,
+            "production": 22.6,
+            "yield": 679.0
+          }
+        },
+        {
+          "year": "2000-01",
+          "kharif": {
+            "area": 36.32,
+            "production": 22.46,
+            "yield": 618.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 36.32,
+            "production": 22.46,
+            "yield": 618.0
+          }
+        },
+        {
+          "year": "1999-00",
+          "kharif": {
+            "area": 34.27,
+            "production": 26.94,
+            "yield": 786.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 34.27,
+            "production": 26.94,
+            "yield": 786.0
+          }
+        },
+        {
+          "year": "1998-99",
+          "kharif": {
+            "area": 34.39,
+            "production": 27.08,
+            "yield": 787.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 34.39,
+            "production": 27.08,
+            "yield": 787.0
+          }
+        },
+        {
+          "year": "1997-98",
+          "kharif": {
+            "area": 33.59,
+            "production": 18.5,
+            "yield": 551.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.59,
+            "production": 18.5,
+            "yield": 551.0
+          }
+        },
+        {
+          "year": "1996-97",
+          "kharif": {
+            "area": 35.13,
+            "production": 26.6,
+            "yield": 757.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.13,
+            "production": 26.6,
+            "yield": 757.0
+          }
+        },
+        {
+          "year": "1995-96",
+          "kharif": {
+            "area": 34.47,
+            "production": 23.09,
+            "yield": 670.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 34.47,
+            "production": 23.09,
+            "yield": 670.0
+          }
+        },
+        {
+          "year": "1994-95",
+          "kharif": {
+            "area": 33.14,
+            "production": 21.44,
+            "yield": 647.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.14,
+            "production": 21.44,
+            "yield": 647.0
+          }
+        },
+        {
+          "year": "1993-94",
+          "kharif": {
+            "area": 35.32,
+            "production": 26.93,
+            "yield": 762.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.32,
+            "production": 26.93,
+            "yield": 762.0
+          }
+        },
+        {
+          "year": "1992-93",
+          "kharif": {
+            "area": 35.76,
+            "production": 23.31,
+            "yield": 652.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.76,
+            "production": 23.31,
+            "yield": 652.0
+          }
+        },
+        {
+          "year": "1991-92",
+          "kharif": {
+            "area": 36.27,
+            "production": 21.33,
+            "yield": 588.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 36.27,
+            "production": 21.33,
+            "yield": 588.0
+          }
+        },
+        {
+          "year": "1990-91",
+          "kharif": {
+            "area": 35.93,
+            "production": 24.17,
+            "yield": 673.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 35.93,
+            "production": 24.17,
+            "yield": 673.0
+          }
+        },
+        {
+          "year": "1989-90",
+          "kharif": {
+            "area": 36.0,
+            "production": 27.47,
+            "yield": 763.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 36.0,
+            "production": 27.47,
+            "yield": 763.0
+          }
+        },
+        {
+          "year": "1988-89",
+          "kharif": {
+            "area": 34.89,
+            "production": 27.18,
+            "yield": 779.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 34.89,
+            "production": 27.18,
+            "yield": 779.0
+          }
+        },
+        {
+          "year": "1987-88",
+          "kharif": {
+            "area": 33.33,
+            "production": 22.82,
+            "yield": 685.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 33.33,
+            "production": 22.82,
+            "yield": 685.0
+          }
+        },
+        {
+          "year": "1986-87",
+          "kharif": {
+            "area": 31.48,
+            "production": 22.72,
+            "yield": 722.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 31.48,
+            "production": 22.72,
+            "yield": 722.0
+          }
+        },
+        {
+          "year": "1985-86",
+          "kharif": {
+            "area": 31.84,
+            "production": 24.41,
+            "yield": 767.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 31.84,
+            "production": 24.41,
+            "yield": 767.0
+          }
+        },
+        {
+          "year": "1984-85",
+          "kharif": {
+            "area": 31.54,
+            "production": 25.85,
+            "yield": 820.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 31.54,
+            "production": 25.85,
+            "yield": 820.0
+          }
+        },
+        {
+          "year": "1983-84",
+          "kharif": {
+            "area": 32.18,
+            "production": 25.76,
+            "yield": 801.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 32.18,
+            "production": 25.76,
+            "yield": 801.0
+          }
+        },
+        {
+          "year": "1982-83",
+          "kharif": {
+            "area": 29.26,
+            "production": 19.89,
+            "yield": 680.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 29.26,
+            "production": 19.89,
+            "yield": 680.0
+          }
+        },
+        {
+          "year": "1981-82",
+          "kharif": {
+            "area": 30.05,
+            "production": 22.37,
+            "yield": 744.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 30.05,
+            "production": 22.37,
+            "yield": 744.0
+          }
+        },
+        {
+          "year": "1980-81",
+          "kharif": {
+            "area": 28.42,
+            "production": 19.57,
+            "yield": 689.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 28.42,
+            "production": 19.57,
+            "yield": 689.0
+          }
+        },
+        {
+          "year": "1979-80",
+          "kharif": {
+            "area": 27.31,
+            "production": 17.57,
+            "yield": 643.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 27.31,
+            "production": 17.57,
+            "yield": 643.0
+          }
+        },
+        {
+          "year": "1978-79",
+          "kharif": {
+            "area": 26.35,
+            "production": 18.87,
+            "yield": 716.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.35,
+            "production": 18.87,
+            "yield": 716.0
+          }
+        },
+        {
+          "year": "1977-78",
+          "kharif": {
+            "area": 26.27,
+            "production": 19.3,
+            "yield": 735.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.27,
+            "production": 19.3,
+            "yield": 735.0
+          }
+        },
+        {
+          "year": "1976-77",
+          "kharif": {
+            "area": 25.66,
+            "production": 17.25,
+            "yield": 672.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 25.66,
+            "production": 17.25,
+            "yield": 672.0
+          }
+        },
+        {
+          "year": "1975-76",
+          "kharif": {
+            "area": 26.71,
+            "production": 20.99,
+            "yield": 786.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.71,
+            "production": 20.99,
+            "yield": 786.0
+          }
+        },
+        {
+          "year": "1974-75",
+          "kharif": {
+            "area": 25.29,
+            "production": 18.44,
+            "yield": 729.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 25.29,
+            "production": 18.44,
+            "yield": 729.0
+          }
+        },
+        {
+          "year": "1973-74",
+          "kharif": {
+            "area": 26.46,
+            "production": 14.08,
+            "yield": 532.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.46,
+            "production": 14.08,
+            "yield": 532.0
+          }
+        },
+        {
+          "year": "1972-73",
+          "kharif": {
+            "area": 24.24,
+            "production": 19.28,
+            "yield": 795.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 24.24,
+            "production": 19.28,
+            "yield": 795.0
+          }
+        },
+        {
+          "year": "1971-72",
+          "kharif": {
+            "area": 23.46,
+            "production": 16.83,
+            "yield": 718.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 23.46,
+            "production": 16.83,
+            "yield": 718.0
+          }
+        },
+        {
+          "year": "1970-71",
+          "kharif": {
+            "area": 26.55,
+            "production": 18.83,
+            "yield": 709.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.55,
+            "production": 18.83,
+            "yield": 709.0
+          }
+        },
+        {
+          "year": "1969-70",
+          "kharif": {
+            "area": 26.69,
+            "production": 18.42,
+            "yield": 690.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.69,
+            "production": 18.42,
+            "yield": 690.0
+          }
+        },
+        {
+          "year": "1968-69",
+          "kharif": {
+            "area": 25.29,
+            "production": 18.16,
+            "yield": 718.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 25.29,
+            "production": 18.16,
+            "yield": 718.0
+          }
+        },
+        {
+          "year": "1967-68",
+          "kharif": {
+            "area": 26.65,
+            "production": 17.41,
+            "yield": 653.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 26.65,
+            "production": 17.41,
+            "yield": 653.0
+          }
+        },
+        {
+          "year": "1966-67",
+          "kharif": {
+            "area": 25.21,
+            "production": 11.3,
+            "yield": 448.0
+          },
+          "rabi": null,
+          "summer": null,
+          "total": {
+            "area": 25.21,
+            "production": 11.3,
+            "yield": 448.0
+          }
+        }
+      ]
+    },
+    "gram": {
+      "name": "Gram",
+      "data": [
+        {
+          "year": "2025-26",
+          "kharif": null,
+          "rabi": {
+            "area": 96.6,
+            "production": 125.14,
+            "yield": 1295.0
+          },
+          "summer": null,
+          "total": {
+            "area": 96.6,
+            "production": 125.14,
+            "yield": 1295.0
+          }
+        },
+        {
+          "year": "2024-25",
+          "kharif": null,
+          "rabi": {
+            "area": 91.22,
+            "production": 111.14,
+            "yield": 1218.0
+          },
+          "summer": null,
+          "total": {
+            "area": 91.22,
+            "production": 111.14,
+            "yield": 1218.0
+          }
+        },
+        {
+          "year": "2023-24",
+          "kharif": null,
+          "rabi": {
+            "area": 95.87,
+            "production": 110.39,
+            "yield": 1151.0
+          },
+          "summer": null,
+          "total": {
+            "area": 95.87,
+            "production": 110.39,
+            "yield": 1151.0
+          }
+        },
+        {
+          "year": "2022-23",
+          "kharif": null,
+          "rabi": {
+            "area": 104.71,
+            "production": 122.67,
+            "yield": 1172.0
+          },
+          "summer": null,
+          "total": {
+            "area": 104.71,
+            "production": 122.67,
+            "yield": 1172.0
+          }
+        },
+        {
+          "year": "2021-22",
+          "kharif": null,
+          "rabi": {
+            "area": 107.4,
+            "production": 135.44,
+            "yield": 1261.0
+          },
+          "summer": null,
+          "total": {
+            "area": 107.4,
+            "production": 135.44,
+            "yield": 1261.0
+          }
+        },
+        {
+          "year": "2020-21",
+          "kharif": null,
+          "rabi": {
+            "area": 99.96,
+            "production": 119.11,
+            "yield": 1192.0
+          },
+          "summer": null,
+          "total": {
+            "area": 99.96,
+            "production": 119.11,
+            "yield": 1192.0
+          }
+        },
+        {
+          "year": "2019-20",
+          "kharif": null,
+          "rabi": {
+            "area": 96.99,
+            "production": 110.78,
+            "yield": 1142.0
+          },
+          "summer": null,
+          "total": {
+            "area": 96.99,
+            "production": 110.78,
+            "yield": 1142.0
+          }
+        },
+        {
+          "year": "2018-19",
+          "kharif": null,
+          "rabi": {
+            "area": 95.44,
+            "production": 99.38,
+            "yield": 1041.0
+          },
+          "summer": null,
+          "total": {
+            "area": 95.44,
+            "production": 99.38,
+            "yield": 1041.0
+          }
+        },
+        {
+          "year": "2017-18",
+          "kharif": null,
+          "rabi": {
+            "area": 105.6,
+            "production": 113.79,
+            "yield": 1078.0
+          },
+          "summer": null,
+          "total": {
+            "area": 105.6,
+            "production": 113.79,
+            "yield": 1078.0
+          }
+        },
+        {
+          "year": "2016-17",
+          "kharif": null,
+          "rabi": {
+            "area": 96.26,
+            "production": 93.78,
+            "yield": 974.0
+          },
+          "summer": null,
+          "total": {
+            "area": 96.26,
+            "production": 93.78,
+            "yield": 974.0
+          }
+        },
+        {
+          "year": "2015-16",
+          "kharif": null,
+          "rabi": {
+            "area": 83.99,
+            "production": 70.58,
+            "yield": 840.0
+          },
+          "summer": null,
+          "total": {
+            "area": 83.99,
+            "production": 70.58,
+            "yield": 840.0
+          }
+        },
+        {
+          "year": "2014-15",
+          "kharif": null,
+          "rabi": {
+            "area": 82.51,
+            "production": 73.32,
+            "yield": 889.0
+          },
+          "summer": null,
+          "total": {
+            "area": 82.51,
+            "production": 73.32,
+            "yield": 889.0
+          }
+        },
+        {
+          "year": "2013-14",
+          "kharif": null,
+          "rabi": {
+            "area": 99.27,
+            "production": 95.26,
+            "yield": 960.0
+          },
+          "summer": null,
+          "total": {
+            "area": 99.27,
+            "production": 95.26,
+            "yield": 960.0
+          }
+        },
+        {
+          "year": "2012-13",
+          "kharif": null,
+          "rabi": {
+            "area": 85.22,
+            "production": 88.32,
+            "yield": 1036.0
+          },
+          "summer": null,
+          "total": {
+            "area": 85.22,
+            "production": 88.32,
+            "yield": 1036.0
+          }
+        },
+        {
+          "year": "2011-12",
+          "kharif": null,
+          "rabi": {
+            "area": 82.99,
+            "production": 77.02,
+            "yield": 928.0
+          },
+          "summer": null,
+          "total": {
+            "area": 82.99,
+            "production": 77.02,
+            "yield": 928.0
+          }
+        },
+        {
+          "year": "2010-11",
+          "kharif": null,
+          "rabi": {
+            "area": 91.86,
+            "production": 82.21,
+            "yield": 895.0
+          },
+          "summer": null,
+          "total": {
+            "area": 91.86,
+            "production": 82.21,
+            "yield": 895.0
+          }
+        },
+        {
+          "year": "2009-10",
+          "kharif": null,
+          "rabi": {
+            "area": 81.69,
+            "production": 74.76,
+            "yield": 915.0
+          },
+          "summer": null,
+          "total": {
+            "area": 81.69,
+            "production": 74.76,
+            "yield": 915.0
+          }
+        },
+        {
+          "year": "2008-09",
+          "kharif": null,
+          "rabi": {
+            "area": 78.93,
+            "production": 70.6,
+            "yield": 895.0
+          },
+          "summer": null,
+          "total": {
+            "area": 78.93,
+            "production": 70.6,
+            "yield": 895.0
+          }
+        },
+        {
+          "year": "2007-08",
+          "kharif": null,
+          "rabi": {
+            "area": 75.44,
+            "production": 57.49,
+            "yield": 762.0
+          },
+          "summer": null,
+          "total": {
+            "area": 75.44,
+            "production": 57.49,
+            "yield": 762.0
+          }
+        },
+        {
+          "year": "2006-07",
+          "kharif": null,
+          "rabi": {
+            "area": 74.94,
+            "production": 63.34,
+            "yield": 845.0
+          },
+          "summer": null,
+          "total": {
+            "area": 74.94,
+            "production": 63.34,
+            "yield": 845.0
+          }
+        },
+        {
+          "year": "2005-06",
+          "kharif": null,
+          "rabi": {
+            "area": 69.26,
+            "production": 56.0,
+            "yield": 808.0
+          },
+          "summer": null,
+          "total": {
+            "area": 69.26,
+            "production": 56.0,
+            "yield": 808.0
+          }
+        },
+        {
+          "year": "2004-05",
+          "kharif": null,
+          "rabi": {
+            "area": 67.15,
+            "production": 54.69,
+            "yield": 815.0
+          },
+          "summer": null,
+          "total": {
+            "area": 67.15,
+            "production": 54.69,
+            "yield": 815.0
+          }
+        },
+        {
+          "year": "2003-04",
+          "kharif": null,
+          "rabi": {
+            "area": 70.48,
+            "production": 57.18,
+            "yield": 811.0
+          },
+          "summer": null,
+          "total": {
+            "area": 70.48,
+            "production": 57.18,
+            "yield": 811.0
+          }
+        },
+        {
+          "year": "2002-03",
+          "kharif": null,
+          "rabi": {
+            "area": 59.06,
+            "production": 42.37,
+            "yield": 717.0
+          },
+          "summer": null,
+          "total": {
+            "area": 59.06,
+            "production": 42.37,
+            "yield": 717.0
+          }
+        },
+        {
+          "year": "2001-02",
+          "kharif": null,
+          "rabi": {
+            "area": 64.16,
+            "production": 54.73,
+            "yield": 853.0
+          },
+          "summer": null,
+          "total": {
+            "area": 64.16,
+            "production": 54.73,
+            "yield": 853.0
+          }
+        },
+        {
+          "year": "2000-01",
+          "kharif": null,
+          "rabi": {
+            "area": 51.85,
+            "production": 38.55,
+            "yield": 744.0
+          },
+          "summer": null,
+          "total": {
+            "area": 51.85,
+            "production": 38.55,
+            "yield": 744.0
+          }
+        },
+        {
+          "year": "1999-00",
+          "kharif": null,
+          "rabi": {
+            "area": 61.46,
+            "production": 51.18,
+            "yield": 833.0
+          },
+          "summer": null,
+          "total": {
+            "area": 61.46,
+            "production": 51.18,
+            "yield": 833.0
+          }
+        },
+        {
+          "year": "1998-99",
+          "kharif": null,
+          "rabi": {
+            "area": 84.69,
+            "production": 68.01,
+            "yield": 803.0
+          },
+          "summer": null,
+          "total": {
+            "area": 84.69,
+            "production": 68.01,
+            "yield": 803.0
+          }
+        },
+        {
+          "year": "1997-98",
+          "kharif": null,
+          "rabi": {
+            "area": 75.63,
+            "production": 61.32,
+            "yield": 811.0
+          },
+          "summer": null,
+          "total": {
+            "area": 75.63,
+            "production": 61.32,
+            "yield": 811.0
+          }
+        },
+        {
+          "year": "1996-97",
+          "kharif": null,
+          "rabi": {
+            "area": 68.47,
+            "production": 55.7,
+            "yield": 814.0
+          },
+          "summer": null,
+          "total": {
+            "area": 68.47,
+            "production": 55.7,
+            "yield": 814.0
+          }
+        },
+        {
+          "year": "1995-96",
+          "kharif": null,
+          "rabi": {
+            "area": 71.16,
+            "production": 49.79,
+            "yield": 700.0
+          },
+          "summer": null,
+          "total": {
+            "area": 71.16,
+            "production": 49.79,
+            "yield": 700.0
+          }
+        },
+        {
+          "year": "1994-95",
+          "kharif": null,
+          "rabi": {
+            "area": 75.43,
+            "production": 64.36,
+            "yield": 853.0
+          },
+          "summer": null,
+          "total": {
+            "area": 75.43,
+            "production": 64.36,
+            "yield": 853.0
+          }
+        },
+        {
+          "year": "1993-94",
+          "kharif": null,
+          "rabi": {
+            "area": 63.59,
+            "production": 49.81,
+            "yield": 783.0
+          },
+          "summer": null,
+          "total": {
+            "area": 63.59,
+            "production": 49.81,
+            "yield": 783.0
+          }
+        },
+        {
+          "year": "1992-93",
+          "kharif": null,
+          "rabi": {
+            "area": 64.54,
+            "production": 44.17,
+            "yield": 684.0
+          },
+          "summer": null,
+          "total": {
+            "area": 64.54,
+            "production": 44.17,
+            "yield": 684.0
+          }
+        },
+        {
+          "year": "1991-92",
+          "kharif": null,
+          "rabi": {
+            "area": 55.8,
+            "production": 41.21,
+            "yield": 739.0
+          },
+          "summer": null,
+          "total": {
+            "area": 55.8,
+            "production": 41.21,
+            "yield": 739.0
+          }
+        },
+        {
+          "year": "1990-91",
+          "kharif": null,
+          "rabi": {
+            "area": 75.21,
+            "production": 53.56,
+            "yield": 712.0
+          },
+          "summer": null,
+          "total": {
+            "area": 75.21,
+            "production": 53.56,
+            "yield": 712.0
+          }
+        },
+        {
+          "year": "1989-90",
+          "kharif": null,
+          "rabi": {
+            "area": 64.71,
+            "production": 42.17,
+            "yield": 652.0
+          },
+          "summer": null,
+          "total": {
+            "area": 64.71,
+            "production": 42.17,
+            "yield": 652.0
+          }
+        },
+        {
+          "year": "1988-89",
+          "kharif": null,
+          "rabi": {
+            "area": 68.1,
+            "production": 51.29,
+            "yield": 753.0
+          },
+          "summer": null,
+          "total": {
+            "area": 68.1,
+            "production": 51.29,
+            "yield": 753.0
+          }
+        },
+        {
+          "year": "1987-88",
+          "kharif": null,
+          "rabi": {
+            "area": 55.67,
+            "production": 36.26,
+            "yield": 651.0
+          },
+          "summer": null,
+          "total": {
+            "area": 55.67,
+            "production": 36.26,
+            "yield": 651.0
+          }
+        },
+        {
+          "year": "1986-87",
+          "kharif": null,
+          "rabi": {
+            "area": 69.84,
+            "production": 45.32,
+            "yield": 649.0
+          },
+          "summer": null,
+          "total": {
+            "area": 69.84,
+            "production": 45.32,
+            "yield": 649.0
+          }
+        },
+        {
+          "year": "1985-86",
+          "kharif": null,
+          "rabi": {
+            "area": 78.05,
+            "production": 57.88,
+            "yield": 742.0
+          },
+          "summer": null,
+          "total": {
+            "area": 78.05,
+            "production": 57.88,
+            "yield": 742.0
+          }
+        },
+        {
+          "year": "1984-85",
+          "kharif": null,
+          "rabi": {
+            "area": 69.04,
+            "production": 45.61,
+            "yield": 661.0
+          },
+          "summer": null,
+          "total": {
+            "area": 69.04,
+            "production": 45.61,
+            "yield": 661.0
+          }
+        },
+        {
+          "year": "1983-84",
+          "kharif": null,
+          "rabi": {
+            "area": 71.61,
+            "production": 47.51,
+            "yield": 663.0
+          },
+          "summer": null,
+          "total": {
+            "area": 71.61,
+            "production": 47.51,
+            "yield": 663.0
+          }
+        },
+        {
+          "year": "1982-83",
+          "kharif": null,
+          "rabi": {
+            "area": 73.99,
+            "production": 52.9,
+            "yield": 715.0
+          },
+          "summer": null,
+          "total": {
+            "area": 73.99,
+            "production": 52.9,
+            "yield": 715.0
+          }
+        },
+        {
+          "year": "1981-82",
+          "kharif": null,
+          "rabi": {
+            "area": 78.68,
+            "production": 46.42,
+            "yield": 590.0
+          },
+          "summer": null,
+          "total": {
+            "area": 78.68,
+            "production": 46.42,
+            "yield": 590.0
+          }
+        },
+        {
+          "year": "1980-81",
+          "kharif": null,
+          "rabi": {
+            "area": 65.85,
+            "production": 43.28,
+            "yield": 657.0
+          },
+          "summer": null,
+          "total": {
+            "area": 65.85,
+            "production": 43.28,
+            "yield": 657.0
+          }
+        },
+        {
+          "year": "1979-80",
+          "kharif": null,
+          "rabi": {
+            "area": 69.85,
+            "production": 33.56,
+            "yield": 481.0
+          },
+          "summer": null,
+          "total": {
+            "area": 69.85,
+            "production": 33.56,
+            "yield": 481.0
+          }
+        },
+        {
+          "year": "1978-79",
+          "kharif": null,
+          "rabi": {
+            "area": 77.08,
+            "production": 57.39,
+            "yield": 745.0
+          },
+          "summer": null,
+          "total": {
+            "area": 77.08,
+            "production": 57.39,
+            "yield": 745.0
+          }
+        },
+        {
+          "year": "1977-78",
+          "kharif": null,
+          "rabi": {
+            "area": 79.74,
+            "production": 54.1,
+            "yield": 678.0
+          },
+          "summer": null,
+          "total": {
+            "area": 79.74,
+            "production": 54.1,
+            "yield": 678.0
+          }
+        },
+        {
+          "year": "1976-77",
+          "kharif": null,
+          "rabi": {
+            "area": 79.75,
+            "production": 54.24,
+            "yield": 680.0
+          },
+          "summer": null,
+          "total": {
+            "area": 79.75,
+            "production": 54.24,
+            "yield": 680.0
+          }
+        },
+        {
+          "year": "1975-76",
+          "kharif": null,
+          "rabi": {
+            "area": 83.2,
+            "production": 58.8,
+            "yield": 707.0
+          },
+          "summer": null,
+          "total": {
+            "area": 83.2,
+            "production": 58.8,
+            "yield": 707.0
+          }
+        },
+        {
+          "year": "1974-75",
+          "kharif": null,
+          "rabi": {
+            "area": 70.42,
+            "production": 40.15,
+            "yield": 570.0
+          },
+          "summer": null,
+          "total": {
+            "area": 70.42,
+            "production": 40.15,
+            "yield": 570.0
+          }
+        },
+        {
+          "year": "1973-74",
+          "kharif": null,
+          "rabi": {
+            "area": 77.61,
+            "production": 40.99,
+            "yield": 528.0
+          },
+          "summer": null,
+          "total": {
+            "area": 77.61,
+            "production": 40.99,
+            "yield": 528.0
+          }
+        },
+        {
+          "year": "1972-73",
+          "kharif": null,
+          "rabi": {
+            "area": 69.68,
+            "production": 45.37,
+            "yield": 651.0
+          },
+          "summer": null,
+          "total": {
+            "area": 69.68,
+            "production": 45.37,
+            "yield": 651.0
+          }
+        },
+        {
+          "year": "1971-72",
+          "kharif": null,
+          "rabi": {
+            "area": 79.12,
+            "production": 50.81,
+            "yield": 642.0
+          },
+          "summer": null,
+          "total": {
+            "area": 79.12,
+            "production": 50.81,
+            "yield": 642.0
+          }
+        },
+        {
+          "year": "1970-71",
+          "kharif": null,
+          "rabi": {
+            "area": 78.39,
+            "production": 51.99,
+            "yield": 663.0
+          },
+          "summer": null,
+          "total": {
+            "area": 78.39,
+            "production": 51.99,
+            "yield": 663.0
+          }
+        },
+        {
+          "year": "1969-70",
+          "kharif": null,
+          "rabi": {
+            "area": 77.52,
+            "production": 55.46,
+            "yield": 715.0
+          },
+          "summer": null,
+          "total": {
+            "area": 77.52,
+            "production": 55.46,
+            "yield": 715.0
+          }
+        },
+        {
+          "year": "1968-69",
+          "kharif": null,
+          "rabi": {
+            "area": 71.06,
+            "production": 43.1,
+            "yield": 607.0
+          },
+          "summer": null,
+          "total": {
+            "area": 71.06,
+            "production": 43.1,
+            "yield": 607.0
+          }
+        },
+        {
+          "year": "1967-68",
+          "kharif": null,
+          "rabi": {
+            "area": 82.57,
+            "production": 59.72,
+            "yield": 723.0
+          },
+          "summer": null,
+          "total": {
+            "area": 82.57,
+            "production": 59.72,
+            "yield": 723.0
+          }
+        },
+        {
+          "year": "1966-67",
+          "kharif": null,
+          "rabi": {
+            "area": 80.03,
+            "production": 36.22,
+            "yield": 453.0
+          },
+          "summer": null,
+          "total": {
+            "area": 80.03,
+            "production": 36.22,
+            "yield": 453.0
+          }
+        }
+      ]
+    }
+  }
+}
