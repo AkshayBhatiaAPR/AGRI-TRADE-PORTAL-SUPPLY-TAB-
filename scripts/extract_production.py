@@ -89,25 +89,31 @@ def save_manifest(manifest):
     with open(MANIFEST_PATH, "w") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
 
-def load_commodity_json(commodity):
-    path = os.path.join(DATA_DIR, f"{commodity}.json")
+def load_production_json():
+    path = os.path.join(DATA_DIR, "production.json")
     if os.path.exists(path):
         with open(path, "r") as f:
             return json.load(f)
-    return {
+    # Initialize empty structure
+    structure = {
         "meta": {
-            "commodity": COMMODITY_DISPLAY[commodity],
             "unit": "Lakh Tonnes",
             "last_updated": None,
             "source_pdf": None,
             "estimate_type": None,
             "estimate_year": None,
         },
-        "data": [],
+        "commodities": {}
     }
+    for c in CANONICAL_COMMODITIES:
+        structure["commodities"][c] = {
+            "name": COMMODITY_DISPLAY[c],
+            "data": []
+        }
+    return structure
 
-def save_commodity_json(commodity, data):
-    path = os.path.join(DATA_DIR, f"{commodity}.json")
+def save_production_json(data):
+    path = os.path.join(DATA_DIR, "production.json")
     with open(path, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
@@ -455,7 +461,7 @@ def _extract_from_tables(all_tables):
             # Find crop name and season in the row
             crop_found = None
             season_found = None
-            text_cells = []
+            has_unknown_crop = False
 
             for ci, cell in enumerate(row):
                 val = str(cell or "").strip()
@@ -466,20 +472,31 @@ def _extract_from_tables(all_tables):
                 canonical = normalize_crop_name(val)
                 if canonical and not is_aggregate_row(val):
                     crop_found = canonical
+                elif not canonical and not is_aggregate_row(val):
+                    # Check if this looks like a crop name we don't track
+                    # (alphabetic, not a season, not a number, not a symbol)
+                    clean = re.sub(r"^\d+[\.\)]*\s*", "", val).strip()
+                    if (len(clean) > 2
+                            and not re.match(r"^[\d\.\,\-\@\$\#\*\s]+$", clean)
+                            and not normalize_season(clean)
+                            and not re.search(r"\d{4}-\d{2}", clean)
+                            and clean.lower() not in ("s no", "s no.", "s.no", "s.no.",
+                                "crop", "season", "production", "sl", "sl.")):
+                        has_unknown_crop = True
 
                 # Check if this cell is a season
                 s = normalize_season(val)
                 if s:
                     season_found = s
 
-                text_cells.append((ci, val))
-
             if crop_found:
                 current_crop = crop_found
-            if current_crop is None or season_found is None:
-                continue
+            elif has_unknown_crop:
+                current_crop = None  # Reset: new crop we don't track
             if is_aggregate_row(" ".join(str(c or "") for c in row)):
                 current_crop = None
+                continue
+            if current_crop is None or season_found is None:
                 continue
 
             # Extract values for year columns
@@ -541,6 +558,8 @@ def _extract_from_text(text_lines):
         # Check for crop name in the line
         line_lower = line.lower()
         crop_in_line = None
+        has_unknown_crop = False
+
         for alias, canonical in CROP_ALIASES.items():
             # Word boundary match
             if re.search(r"\b" + re.escape(alias) + r"\b", line_lower):
@@ -548,8 +567,28 @@ def _extract_from_text(text_lines):
                     crop_in_line = canonical
                     break
 
+        # Check if line has a non-target crop name (reset carry-forward)
+        if not crop_in_line and not is_aggregate_row(line):
+            non_target_crops = [
+                "urad", "moong", "lentil", "masoor", "pea", "kulthi",
+                "moth", "khesari", "rajma", "cowpea",
+                "groundnut", "soyabean", "soybean", "sunflower", "sesamum",
+                "rapeseed", "mustard", "linseed", "castor", "niger",
+                "safflower", "cotton", "jute", "mesta", "tobacco",
+                "tea", "coffee", "rubber", "coconut", "arecanut",
+                "pepper", "cardamom", "turmeric", "ginger", "chilli",
+                "coriander", "cumin", "garlic", "tapioca", "potato",
+                "sweet potato", "onion",
+            ]
+            for nc in non_target_crops:
+                if re.search(r"\b" + re.escape(nc) + r"\b", line_lower):
+                    has_unknown_crop = True
+                    break
+
         if crop_in_line:
             current_crop = crop_in_line
+        elif has_unknown_crop:
+            current_crop = None
 
         # Check for season
         season = None
@@ -623,10 +662,13 @@ def _extract_from_text(text_lines):
 # PHASE 4: MERGE
 # ---------------------------------------------------------------------------
 
-def merge_into_json(commodity, new_data, pdf_info):
-    cj = load_commodity_json(commodity)
+def merge_commodity(existing_data, new_data):
+    """
+    Merge new year/season data into an existing commodity's data array.
+    Returns (updated_data_list, change_count).
+    """
     existing_by_year = {}
-    for entry in cj["data"]:
+    for entry in existing_data:
         existing_by_year[entry["year"]] = entry
 
     changes = 0
@@ -651,15 +693,7 @@ def merge_into_json(commodity, new_data, pdf_info):
         key=lambda x: x["year"],
         reverse=True,
     )
-
-    now = datetime.now(timezone.utc).isoformat()
-    cj["meta"]["last_updated"] = now
-    cj["meta"]["source_pdf"] = pdf_info["filename"]
-    cj["meta"]["estimate_type"] = parse_estimate_label(pdf_info["estimate_num"])
-    cj["meta"]["estimate_year"] = pdf_info["crop_year"]
-    cj["data"] = all_entries
-
-    return cj, changes
+    return all_entries, changes
 
 
 # ---------------------------------------------------------------------------
@@ -682,16 +716,38 @@ def process_pdf(pdf_info, manifest):
             log.error("No production data extracted from PDF — skipping")
             return False
 
+        # Load single production.json
+        pj = load_production_json()
+
         total_changes = 0
         for commodity in CANONICAL_COMMODITIES:
             if not extracted[commodity]:
                 log.warning(f"  No data for {COMMODITY_DISPLAY[commodity]} — skipping")
                 continue
-            cj, changes = merge_into_json(commodity, extracted[commodity], pdf_info)
-            save_commodity_json(commodity, cj)
+
+            # Ensure commodity exists in structure
+            if commodity not in pj["commodities"]:
+                pj["commodities"][commodity] = {
+                    "name": COMMODITY_DISPLAY[commodity],
+                    "data": []
+                }
+
+            existing_data = pj["commodities"][commodity]["data"]
+            updated_data, changes = merge_commodity(existing_data, extracted[commodity])
+            pj["commodities"][commodity]["data"] = updated_data
             total_changes += changes
             log.info(f"  {COMMODITY_DISPLAY[commodity]}: "
-                     f"{len(cj['data'])} years, {changes} change(s)")
+                     f"{len(updated_data)} years, {changes} change(s)")
+
+        # Update meta
+        now = datetime.now(timezone.utc).isoformat()
+        pj["meta"]["last_updated"] = now
+        pj["meta"]["source_pdf"] = pdf_info["filename"]
+        pj["meta"]["estimate_type"] = parse_estimate_label(pdf_info["estimate_num"])
+        pj["meta"]["estimate_year"] = pdf_info["crop_year"]
+
+        # Save single file
+        save_production_json(pj)
 
         manifest["processed"].append({
             "filename": pdf_info["filename"],
