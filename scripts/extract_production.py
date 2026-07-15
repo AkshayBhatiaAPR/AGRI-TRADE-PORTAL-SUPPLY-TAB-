@@ -1,646 +1,507 @@
-#!/usr/bin/env python3
 """
-extract_production.py — UPAg APY Data Extractor
-
-Uses Playwright to access the UPAg portal (upag.gov.in), downloads the
-All India Year-wise Crop APY CSV, extracts Area, Production, and Yield
-for six commodities (Paddy, Wheat, Maize, Sugarcane, Tur, Gram), and
-writes a combined production.json file.
-
-Usage:
-    python scripts/extract_production.py
-
-Dependencies:
-    pip install playwright
-    playwright install chromium --with-deps
+Fetch PAU advisories, extract text from PDFs using pdfplumber,
+categorize by topic using rule-based parsing (English + Punjabi keywords),
+consolidate into one JSON file. Zero AI dependencies.
+Uses Playwright for JS-rendered pages.
 """
-
-import csv
-import io
 import json
 import os
-import sys
-import logging
 import re
-from datetime import datetime, timezone
+import sys
+import time
+import urllib.request
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from io import BytesIO
 
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-)
-log = logging.getLogger("extract_production")
+try:
+    import pdfplumber
+except ImportError:
+    os.system("pip install pdfplumber --break-system-packages -q")
+    import pdfplumber
 
-# ---------------------------------------------------------------------------
-# CONFIG
-# ---------------------------------------------------------------------------
-
-UPAG_URL = (
-    "https://upag.gov.in/dash-reports/allindiaapyyearwise"
-    "?rtab=Area%2C+Production+%26+Yield&rtype=reports"
-)
-
-DATA_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data"
-)
-PRODUCTION_JSON = os.path.join(DATA_DIR, "production.json")
-MANIFEST_PATH = os.path.join(DATA_DIR, "manifest.json")
-
-# Crop name mapping: UPAg column name → our canonical key
-CROP_MAP = {
-    "rice": "paddy",
-    "paddy": "paddy",
-    "wheat": "wheat",
-    "maize": "maize",
-    "sugarcane": "sugarcane",
-    "tur": "tur",
-    "tur (arhar)": "tur",
-    "arhar": "tur",
-    "gram": "gram",
-}
-
-CANONICAL = ["paddy", "wheat", "maize", "sugarcane", "tur", "gram"]
-DISPLAY = {
-    "paddy": "Paddy", "wheat": "Wheat", "maize": "Maize",
-    "sugarcane": "Sugarcane", "tur": "Tur", "gram": "Gram",
-}
-VALID_SEASONS = {"kharif", "rabi", "summer", "total"}
-
-
-# ---------------------------------------------------------------------------
-# PHASE 1: DOWNLOAD CSV VIA PLAYWRIGHT
-# ---------------------------------------------------------------------------
-
-def download_csv_from_upag():
-    """
-    Use Playwright headless browser to:
-    1. Navigate to UPAg APY page
-    2. Wait for table to render
-    3. Click CSV download button
-    4. Return the downloaded file content
-    """
+try:
+    from playwright.sync_api import sync_playwright
+except ImportError:
+    os.system("pip install playwright --break-system-packages -q")
+    os.system("python3 -m playwright install chromium")
     from playwright.sync_api import sync_playwright
 
-    log.info(f"Launching headless browser...")
-    log.info(f"Target URL: {UPAG_URL}")
+OUT_PATH = Path("data/advisory/pau_advisory.json")
+MAX_ISSUES = 4
 
-    csv_content = None
+PAU_PAGES = [
+    {
+        "name": "Agro Advisory (Weekly)",
+        "url": "https://pau.edu/index.php?_act=manageSandesh&DO=viewAdvisory",
+        "type": "agro_advisory",
+    },
+    {
+        "name": "Kheti Sandesh",
+        "url": "https://pau.edu/index.php?_act=manageSandesh&DO=viewSandesh",
+        "type": "kheti_sandesh",
+    },
+]
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        context = browser.new_context(accept_downloads=True)
-        page = context.new_page()
+HEADERS = {"User-Agent": "ArcusPolicyResearch/1.0"}
 
-        # Navigate to UPAg
-        log.info("Navigating to UPAg...")
-        page.goto(UPAG_URL, wait_until="networkidle", timeout=120000)
+CROP_KEYWORDS = [
+    "rice", "paddy", "basmati", "cotton", "narma", "sugarcane",
+    "maize", "corn", "moong", "mungbean", "mung", "mash", "urad", "urdbean",
+    "groundnut", "peanut", "soybean", "soyabean", "bajra", "pearl millet",
+    "vegetables", "vegetable crops", "fruit", "fruits", "orchard", "orchards",
+    "fodder", "pulses", "oilseeds", "potato", "onion", "tomato",
+    "wheat", "mustard", "rapeseed", "sunflower", "guava", "kinnow", "citrus",
+    "ਝੋਨਾ", "ਧਾਨ", "ਬਾਸਮਤੀ", "ਕਣਕ", "ਨਰਮਾ", "ਕਪਾਹ", "ਗੰਨਾ", "ਮੱਕੀ",
+    "ਮੂੰਗੀ", "ਮਾਂਹ", "ਮੂੰਗਫਲੀ", "ਸੋਇਆਬੀਨ", "ਬਾਜਰਾ",
+    "ਸਬਜ਼ੀਆਂ", "ਸਬਜ਼ੀ", "ਫਲ", "ਚਾਰਾ", "ਦਾਲਾਂ", "ਤੇਲ ਬੀਜ",
+    "ਆਲੂ", "ਪਿਆਜ਼", "ਟਮਾਟਰ", "ਸਰ੍ਹੋਂ", "ਰਾਇਆ", "ਸੂਰਜਮੁਖੀ", "ਅਮਰੂਦ", "ਕਿੰਨੂ",
+]
 
-        # Wait for the table to load
-        log.info("Waiting for table to render...")
+CROP_NAME_MAP = {
+    "ਝੋਨਾ": "Rice (ਝੋਨਾ)", "ਧਾਨ": "Rice (ਧਾਨ)", "ਬਾਸਮਤੀ": "Basmati (ਬਾਸਮਤੀ)",
+    "ਕਣਕ": "Wheat (ਕਣਕ)", "ਨਰਮਾ": "Cotton (ਨਰਮਾ)", "ਕਪਾਹ": "Cotton (ਕਪਾਹ)",
+    "ਗੰਨਾ": "Sugarcane (ਗੰਨਾ)", "ਮੱਕੀ": "Maize (ਮੱਕੀ)", "ਮੂੰਗੀ": "Moong (ਮੂੰਗੀ)",
+    "ਮਾਂਹ": "Urad (ਮਾਂਹ)", "ਮੂੰਗਫਲੀ": "Groundnut (ਮੂੰਗਫਲੀ)",
+    "ਸੋਇਆਬੀਨ": "Soybean (ਸੋਇਆਬੀਨ)", "ਬਾਜਰਾ": "Bajra (ਬਾਜਰਾ)",
+    "ਸਬਜ਼ੀਆਂ": "Vegetables (ਸਬਜ਼ੀਆਂ)", "ਸਬਜ਼ੀ": "Vegetables (ਸਬਜ਼ੀ)",
+    "ਫਲ": "Fruits (ਫਲ)", "ਚਾਰਾ": "Fodder (ਚਾਰਾ)", "ਦਾਲਾਂ": "Pulses (ਦਾਲਾਂ)",
+    "ਤੇਲ ਬੀਜ": "Oilseeds (ਤੇਲ ਬੀਜ)", "ਆਲੂ": "Potato (ਆਲੂ)",
+    "ਪਿਆਜ਼": "Onion (ਪਿਆਜ਼)", "ਟਮਾਟਰ": "Tomato (ਟਮਾਟਰ)",
+    "ਸਰ੍ਹੋਂ": "Mustard (ਸਰ੍ਹੋਂ)", "ਰਾਇਆ": "Mustard (ਰਾਇਆ)",
+    "ਸੂਰਜਮੁਖੀ": "Sunflower (ਸੂਰਜਮੁਖੀ)", "ਅਮਰੂਦ": "Guava (ਅਮਰੂਦ)",
+    "ਕਿੰਨੂ": "Kinnow (ਕਿੰਨੂ)",
+}
+
+
+def fetch_page(url):
+    """Fetch a JS-rendered page using Playwright headless Chromium."""
+    print(f"  Launching headless browser for: {url}", flush=True)
+    for attempt in range(1, 4):
         try:
-            page.wait_for_selector("table", timeout=60000)
-            log.info("Table detected")
-        except Exception:
-            # Try waiting for any data content
-            page.wait_for_timeout(15000)
-            log.info("Waited 15s for content")
-
-        # Look for the CSV download button and click it
-        log.info("Looking for CSV download button...")
-
-        # Try multiple selectors for the CSV button
-        csv_selectors = [
-            "button:has-text('CSV')",
-            "a:has-text('CSV')",
-            "button:has-text('csv')",
-            "[title*='CSV']",
-            "[aria-label*='CSV']",
-            ".csv-btn",
-            "button >> text=CSV",
-        ]
-
-        download_clicked = False
-        for selector in csv_selectors:
-            try:
-                element = page.query_selector(selector)
-                if element and element.is_visible():
-                    log.info(f"Found CSV button with selector: {selector}")
-
-                    # Start waiting for download before clicking
-                    with page.expect_download(timeout=60000) as download_info:
-                        element.click()
-
-                    download = download_info.value
-                    log.info(f"Download started: {download.suggested_filename}")
-
-                    # Save to temp path and read content
-                    tmp_path = download.path()
-                    if tmp_path:
-                        with open(tmp_path, "r", encoding="utf-8", errors="replace") as f:
-                            csv_content = f.read()
-                        log.info(f"Downloaded {len(csv_content)} chars")
-                    download_clicked = True
-                    break
-            except Exception as e:
-                continue
-
-        # Fallback: try EXCEL button if CSV didn't work
-        if not download_clicked:
-            log.info("CSV button not found, trying EXCEL button...")
-            excel_selectors = [
-                "button:has-text('EXCEL')",
-                "a:has-text('EXCEL')",
-                "button:has-text('Excel')",
-            ]
-            for selector in excel_selectors:
-                try:
-                    element = page.query_selector(selector)
-                    if element and element.is_visible():
-                        log.info(f"Found EXCEL button with selector: {selector}")
-                        with page.expect_download(timeout=60000) as download_info:
-                            element.click()
-                        download = download_info.value
-                        log.info(f"Download started: {download.suggested_filename}")
-                        tmp_path = download.path()
-                        if tmp_path:
-                            # Read as binary for Excel
-                            with open(tmp_path, "rb") as f:
-                                excel_bytes = f.read()
-                            csv_content = convert_excel_to_csv(excel_bytes)
-                            log.info(f"Converted Excel to CSV: {len(csv_content)} chars")
-                        download_clicked = True
-                        break
-                except Exception:
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                page = browser.new_page()
+                page.goto(url, timeout=90000, wait_until="domcontentloaded")
+                time.sleep(5)
+                html = page.content()
+                browser.close()
+                if "404 Error" in html and ".pdf" not in html.lower():
+                    print(f"  Page returned 404 with no PDFs (attempt {attempt})", flush=True)
+                    time.sleep(5)
                     continue
-
-        # Last resort: scrape the table directly from HTML
-        if not download_clicked or not csv_content:
-            log.info("Download buttons failed, scraping table from HTML...")
-            csv_content = scrape_table_from_page(page)
-
-        browser.close()
-
-    if not csv_content:
-        log.error("Failed to get data from UPAg")
-        return None
-
-    return csv_content
+                print(f"  Page loaded: {len(html):,} chars", flush=True)
+                return html
+        except Exception as e:
+            print(f"  browser attempt {attempt} failed: {e}", flush=True)
+            time.sleep(10 * attempt)
+    return None
 
 
-def convert_excel_to_csv(excel_bytes):
-    """Convert Excel bytes to CSV string using openpyxl."""
+def extract_pdf_links(html, page_type):
+    links = []
+    all_matches = set()
+
+    for pat in [
+        re.compile(r'href=["\']([^"\']*?\.pdf)["\']', re.IGNORECASE),
+        re.compile(r'(?:window\.open|location\.href)\s*[=(]\s*["\']([^"\']*?\.pdf)["\']', re.IGNORECASE),
+    ]:
+        for m in pat.finditer(html):
+            all_matches.add(m.group(1))
+
+    a_pattern = re.compile(r'<a[^>]*?href=["\']([^"\']*?)["\'][^>]*?>', re.IGNORECASE)
+    for m in a_pattern.finditer(html):
+        href = m.group(1)
+        if href.lower().endswith('.pdf'):
+            all_matches.add(href)
+
+    for pdf_path in all_matches:
+        if not pdf_path.startswith("http"):
+            if pdf_path.startswith("/"):
+                pdf_url = "https://pau.edu" + pdf_path
+            else:
+                pdf_url = "https://pau.edu/" + pdf_path
+        else:
+            pdf_url = pdf_path
+
+        escaped = re.escape(pdf_path)
+        context_match = re.search(r'.{0,300}' + escaped + r'.{0,300}', html, re.DOTALL)
+        context = context_match.group(0) if context_match else ""
+
+        date_match = re.search(r'(\d{2}-\d{2}-\d{4})', context)
+        date_str = date_match.group(1) if date_match else ""
+
+        issue_match = re.search(r'(?:Vol|ਅੰਕ)\s*(\d+)', context)
+        issue_num = issue_match.group(1) if issue_match else ""
+
+        file_id = f"{page_type}_{issue_num}_{date_str}" if (issue_num or date_str) else pdf_url
+
+        links.append({
+            "url": pdf_url, "date": date_str, "issue_number": issue_num,
+            "type": page_type, "file_id": file_id,
+        })
+    return links
+
+
+def download_pdf(url):
+    for attempt in range(1, 4):
+        try:
+            req = urllib.request.Request(url, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                return resp.read()
+        except Exception as e:
+            print(f"    download attempt {attempt} failed: {e}", flush=True)
+            time.sleep(5 * attempt)
+    return None
+
+
+def extract_text_from_pdf(pdf_bytes):
+    text_parts = []
+    tables_found = []
     try:
-        import openpyxl
-        wb = openpyxl.load_workbook(io.BytesIO(excel_bytes), data_only=True)
-        ws = wb.active
-        output = io.StringIO()
-        writer = csv.writer(output)
-        for row in ws.iter_rows(values_only=True):
-            writer.writerow(row)
-        return output.getvalue()
-    except ImportError:
-        log.error("openpyxl not installed — cannot convert Excel")
-        return None
-
-
-def scrape_table_from_page(page):
-    """Scrape the rendered HTML table directly."""
-    try:
-        # Get all table rows
-        rows = page.query_selector_all("table tr")
-        if not rows:
-            log.error("No table rows found")
-            return None
-
-        output = io.StringIO()
-        writer = csv.writer(output)
-
-        for row in rows:
-            cells = row.query_selector_all("th, td")
-            values = [cell.inner_text().strip() for cell in cells]
-            if any(v for v in values):
-                writer.writerow(values)
-
-        result = output.getvalue()
-        log.info(f"Scraped {len(rows)} rows from HTML table")
-        return result
+        with pdfplumber.open(BytesIO(pdf_bytes)) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text_parts.append(page_text)
+                tables = page.extract_tables()
+                for table in tables:
+                    table_rows = []
+                    for row in table:
+                        if row:
+                            cleaned = [str(cell).strip() for cell in row if cell]
+                            if cleaned:
+                                table_rows.append(cleaned)
+                    if table_rows:
+                        tables_found.append(table_rows)
     except Exception as e:
-        log.error(f"Table scraping failed: {e}")
-        return None
+        print(f"    pdfplumber error: {e}", flush=True)
+    return "\n\n".join(text_parts), tables_found
 
 
-# ---------------------------------------------------------------------------
-# PHASE 2: PARSE CSV
-# ---------------------------------------------------------------------------
+def parse_weather(full_text, tables):
+    weather = {"outlook": "", "zone_data": [], "general_advice": ""}
 
-def normalize_crop(name):
-    """Map a column/crop name to canonical key."""
-    if not name:
-        return None
-    clean = name.strip().lower()
-    clean = re.sub(r"\s+", " ", clean)
-    if clean in CROP_MAP:
-        return CROP_MAP[clean]
-    for alias, canonical in CROP_MAP.items():
-        if alias in clean:
-            return canonical
-    return None
-
-
-def normalize_season(s):
-    """Normalize season text."""
-    if not s:
-        return None
-    s = s.strip().lower()
-    if "kharif" in s: return "kharif"
-    if "rabi" in s: return "rabi"
-    if "summer" in s: return "summer"
-    if "total" in s: return "total"
-    return None
-
-
-def parse_number(val):
-    """Parse numeric value, return float or None."""
-    if val is None:
-        return None
-    val = str(val).strip()
-    if not val or val in ("", "-", "--", "NA", "N/A", "null", "None"):
-        return None
-    val = val.replace(",", "")
-    try:
-        return float(val)
-    except ValueError:
-        return None
-
-
-def parse_crop_year(text):
-    """Extract year pattern like 2024-25."""
-    m = re.search(r"(\d{4})-(\d{2,4})", str(text))
-    if m:
-        start, end = m.group(1), m.group(2)
-        if len(end) == 4:
-            end = end[2:]
-        return f"{start}-{end}"
-    return None
-
-
-def detect_csv_format(lines):
-    """
-    Detect whether the CSV is in wide format (crops as column groups)
-    or long format (one row per crop-season-year).
-    Returns 'wide' or 'long'.
-    """
-    if not lines:
-        return None
-    header = lines[0].lower()
-    # Wide format: Year, Season, Rice_Area, Rice_Production, Rice_Yield, Wheat_Area, ...
-    # Or: Year, Season, [Rice] Area, Production, Yield, [Wheat] Area, ...
-    if "year" in header and ("rice" in header or "wheat" in header or "maize" in header):
-        return "wide"
-    # Long format: Year, Season, Crop, Area, Production, Yield
-    if "crop" in header and "area" in header:
-        return "long"
-    # If header has Area, Production, Yield repeated multiple times → wide
-    if header.count("area") > 1 or header.count("product") > 1:
-        return "wide"
-    return "wide"  # default
-
-
-def parse_csv_data(csv_content):
-    """
-    Parse the CSV/scraped data and return structured dict.
-    Returns: {commodity: {year: {season: {area, production, yield}}}}
-    """
-    extracted = {c: {} for c in CANONICAL}
-
-    lines = csv_content.strip().split("\n")
-    if len(lines) < 2:
-        log.error("CSV has fewer than 2 lines")
-        return extracted
-
-    reader = csv.reader(io.StringIO(csv_content))
-    rows = list(reader)
-
-    if len(rows) < 2:
-        log.error("CSV has fewer than 2 rows")
-        return extracted
-
-    # Find the header row (might not be row 0 — could have title rows)
-    header_idx = 0
-    header = rows[0]
-
-    # Check if first row is a title/metadata row
-    for i, row in enumerate(rows[:5]):
-        row_text = " ".join(str(c) for c in row).lower()
-        if "year" in row_text and "season" in row_text:
-            header_idx = i
-            header = row
-            break
-        # Also check for crop names in header (wide format with 2-level header)
-        crop_matches = sum(1 for c in row if normalize_crop(str(c)) is not None)
-        if crop_matches >= 2:
-            header_idx = i
-            header = row
+    for pat in [
+        r'(?:WEATHER\s*(?:CROP\s*)?OUTLOOK[:\s]*)(.*?)(?=\n\s*CROPS?[:\s]|\n\s*[A-Z][a-z]+\s*:)',
+        r'(?:Weather\s*(?:Crop\s*)?Outlook[:\s]*)(.*?)(?=\n\s*Crops?[:\s]|\n\s*[A-Z][a-z]+\s*:)',
+        r'(?:ਮੌਸਮ\s*(?:ਫ਼ਸਲ\s*)?ਸੰਭਾਵਨਾ[:\s]*)(.*?)(?=\n\s*ਫ਼ਸਲਾਂ[:\s])',
+        r'(?:ਮੌਸਮ[:\s]*)(.*?)(?=\n\s*ਫ਼ਸਲ)',
+    ]:
+        m = re.search(pat, full_text, re.DOTALL | re.IGNORECASE)
+        if m:
+            weather["outlook"] = m.group(1).strip()
             break
 
-    log.info(f"Header at row {header_idx}: {header[:8]}...")
+    for table in tables:
+        header = [str(c).lower() for c in table[0]] if table else []
+        if any(w in " ".join(header) for w in ["zone", "weather", "temperature", "ਤਾਪਮਾਨ", "ਖੇਤਰ"]):
+            for row in table[1:]:
+                if len(row) >= 2:
+                    param = row[0].strip() if row[0] else ""
+                    for i, zone_name in enumerate(header[1:], 1):
+                        if i < len(row) and row[i]:
+                            zone_entry = next((z for z in weather["zone_data"] if z["zone"].lower() == zone_name.lower()), None)
+                            if not zone_entry:
+                                zone_entry = {"zone": zone_name.strip(), "max_temp": "", "min_temp": "", "morning_humidity": "", "evening_humidity": ""}
+                                weather["zone_data"].append(zone_entry)
+                            val = str(row[i]).strip()
+                            pl = param.lower()
+                            if ("max" in pl or "ਵੱਧ" in pl) and ("temp" in pl or "ਤਾਪਮਾਨ" in pl): zone_entry["max_temp"] = val
+                            elif ("min" in pl or "ਘੱਟ" in pl) and ("temp" in pl or "ਤਾਪਮਾਨ" in pl): zone_entry["min_temp"] = val
+                            elif ("morning" in pl or "ਸਵੇਰ" in pl) and ("humid" in pl or "ਨਮੀ" in pl): zone_entry["morning_humidity"] = val
+                            elif ("evening" in pl or "ਸ਼ਾਮ" in pl) and ("humid" in pl or "ਨਮੀ" in pl): zone_entry["evening_humidity"] = val
 
-    # Detect column structure
-    # The UPAg table has: Year | Season | [Crop1] Area | Prod | Yield | [Crop2] Area | Prod | Yield | ...
-    # Or could be: Year | Season | Rice_Area | Rice_Production | Rice_Yield | Wheat_Area | ...
-
-    # Build column mapping: find which columns belong to which crop
-    crop_columns = {}  # {canonical_key: {area_col, prod_col, yield_col}}
-
-    # Check if there's a secondary header row (crop names above Area/Prod/Yield)
-    if header_idx > 0:
-        crop_header = rows[header_idx - 1]
-    else:
-        crop_header = None
-
-    # Strategy 1: Check for multi-level headers (crop names in row above)
-    if crop_header:
-        current_crop = None
-        for ci, cell in enumerate(crop_header):
-            crop = normalize_crop(str(cell))
-            if crop:
-                current_crop = crop
-            if current_crop and ci < len(header):
-                col_name = str(header[ci]).strip().lower()
-                if current_crop not in crop_columns:
-                    crop_columns[current_crop] = {}
-                if "area" in col_name:
-                    crop_columns[current_crop]["area"] = ci
-                elif "prod" in col_name:
-                    crop_columns[current_crop]["prod"] = ci
-                elif "yield" in col_name:
-                    crop_columns[current_crop]["yield"] = ci
-
-    # Strategy 2: Check for combined column names like "Rice Area", "Rice Production"
-    if not crop_columns:
-        for ci, col_name in enumerate(header):
-            col_lower = str(col_name).strip().lower()
-            for alias, canonical in CROP_MAP.items():
-                if alias in col_lower:
-                    if canonical not in crop_columns:
-                        crop_columns[canonical] = {}
-                    if "area" in col_lower:
-                        crop_columns[canonical]["area"] = ci
-                    elif "prod" in col_lower:
-                        crop_columns[canonical]["prod"] = ci
-                    elif "yield" in col_lower:
-                        crop_columns[canonical]["yield"] = ci
-                    break
-
-    # Strategy 3: Positional — UPAg format: Year, Season, then groups of 3 (Area, Prod, Yield)
-    if not crop_columns:
-        log.info("Using positional column detection...")
-        # Find Year and Season columns
-        year_col = None
-        season_col = None
-        for ci, col in enumerate(header):
-            cl = str(col).strip().lower()
-            if "year" in cl:
-                year_col = ci
-            elif "season" in cl:
-                season_col = ci
-
-        if year_col is not None and season_col is not None:
-            # After Year and Season, look for repeating Area/Prod/Yield pattern
-            data_start = max(year_col, season_col) + 1
-
-            # Try to detect crop names from the row ABOVE header or from context
-            # From screenshot: crops appear in a merged header row above
-            if crop_header:
-                current_crop = None
-                col_idx = data_start
-                while col_idx < len(header):
-                    # Check crop header row for crop name
-                    if col_idx < len(crop_header):
-                        crop = normalize_crop(str(crop_header[col_idx]))
-                        if crop:
-                            current_crop = crop
-                    if current_crop:
-                        if current_crop not in crop_columns:
-                            crop_columns[current_crop] = {}
-                        col_lower = str(header[col_idx]).strip().lower()
-                        if "area" in col_lower:
-                            crop_columns[current_crop]["area"] = col_idx
-                        elif "prod" in col_lower:
-                            crop_columns[current_crop]["prod"] = col_idx
-                        elif "yield" in col_lower:
-                            crop_columns[current_crop]["yield"] = col_idx
-                    col_idx += 1
-
-    # Strategy 4: Long format (Year, Season, Crop, Area, Production, Yield)
-    if not crop_columns:
-        header_lower = [str(h).strip().lower() for h in header]
-        if "crop" in header_lower:
-            log.info("Detected long format CSV")
-            crop_col = header_lower.index("crop")
-            area_col = next((i for i, h in enumerate(header_lower) if "area" in h), None)
-            prod_col = next((i for i, h in enumerate(header_lower) if "prod" in h), None)
-            yield_col = next((i for i, h in enumerate(header_lower) if "yield" in h), None)
-            yr_col = next((i for i, h in enumerate(header_lower) if "year" in h), None)
-            ssn_col = next((i for i, h in enumerate(header_lower) if "season" in h), None)
-
-            for row in rows[header_idx + 1:]:
-                if len(row) <= max(c for c in [crop_col, yr_col, ssn_col] if c is not None):
-                    continue
-                crop = normalize_crop(str(row[crop_col])) if crop_col is not None else None
-                if not crop:
-                    continue
-                year = parse_crop_year(str(row[yr_col])) if yr_col is not None else None
-                season = normalize_season(str(row[ssn_col])) if ssn_col is not None else None
-                if not year or not season:
-                    continue
-
-                area = parse_number(row[area_col]) if area_col is not None and area_col < len(row) else None
-                prod = parse_number(row[prod_col]) if prod_col is not None and prod_col < len(row) else None
-                yld = parse_number(row[yield_col]) if yield_col is not None and yield_col < len(row) else None
-
-                if year not in extracted[crop]:
-                    extracted[crop][year] = {}
-                extracted[crop][year][season] = {
-                    "area": area, "production": prod, "yield": yld
-                }
-
-            return extracted
-
-    if not crop_columns:
-        log.error("Could not detect column structure")
-        log.info(f"Header: {header}")
-        if crop_header:
-            log.info(f"Crop header: {crop_header}")
-        return extracted
-
-    log.info(f"Detected {len(crop_columns)} crops: {list(crop_columns.keys())}")
-    for crop, cols in crop_columns.items():
-        log.info(f"  {DISPLAY.get(crop, crop)}: {cols}")
-
-    # Find year and season columns
-    year_col = None
-    season_col = None
-    header_lower = [str(h).strip().lower() for h in header]
-    for ci, cl in enumerate(header_lower):
-        if "year" in cl:
-            year_col = ci
-        elif "season" in cl:
-            season_col = ci
-
-    if year_col is None or season_col is None:
-        log.error(f"Year/Season columns not found in header: {header[:5]}")
-        return extracted
-
-    # Parse data rows
-    for row in rows[header_idx + 1:]:
-        if not row or len(row) <= season_col:
-            continue
-
-        year = parse_crop_year(str(row[year_col]))
-        season = normalize_season(str(row[season_col]))
-
-        if not year or not season:
-            continue
-
-        for crop, cols in crop_columns.items():
-            area = parse_number(row[cols["area"]]) if "area" in cols and cols["area"] < len(row) else None
-            prod = parse_number(row[cols["prod"]]) if "prod" in cols and cols["prod"] < len(row) else None
-            yld = parse_number(row[cols["yield"]]) if "yield" in cols and cols["yield"] < len(row) else None
-
-            if area is None and prod is None and yld is None:
-                continue
-
-            if year not in extracted[crop]:
-                extracted[crop][year] = {}
-            extracted[crop][year][season] = {
-                "area": area, "production": prod, "yield": yld
-            }
-
-    return extracted
+    for pat in [
+        r'((?:Farmers?\s+(?:are\s+)?advised?|Keep\s+proper\s+drainage|Remove\s+excess\s+rainwater).*?\.)',
+        r'((?:ਕਿਸਾਨਾਂ\s+ਨੂੰ\s+ਸਲਾਹ|ਪਾਣੀ\s+ਦੀ\s+ਨਿਕਾਸੀ|ਬਾਰਿਸ਼\s+ਦਾ\s+ਪਾਣੀ).*?।)',
+    ]:
+        m = re.search(pat, full_text, re.DOTALL | re.IGNORECASE)
+        if m:
+            weather["general_advice"] = m.group(1).strip()
+            break
+    return weather
 
 
-# ---------------------------------------------------------------------------
-# PHASE 3: WRITE JSON
-# ---------------------------------------------------------------------------
+def detect_category(sentence):
+    s = sentence.lower()
 
-def build_production_json(extracted):
-    """Build the final production.json structure."""
-    now = datetime.now(timezone.utc).isoformat()
+    irr = ["irrigation", "irrigat", "water standing", "ponded water", "drain", "waterlogg", "field capacity", "apply water",
+           "ਸਿੰਚਾਈ", "ਪਾਣੀ ਲਗਾ", "ਪਾਣੀ ਦਿਓ", "ਪਾਣੀ ਖੜ੍ਹਾ", "ਨਿਕਾਸੀ", "ਪਾਣੀ ਕੱਢ", "ਪਾਣੀ ਦੇ", "ਪਾਣੀ ਨਾ ਖੜ੍ਹ"]
+    if any(w in s for w in irr): return "irrigation"
 
-    pj = {
-        "meta": {
-            "unit_area": "Lakh Hectares",
-            "unit_production": "Lakh Tonnes",
-            "unit_yield": "Kg/Hectare",
-            "source": "DA&FW via UPAg (upag.gov.in)",
-            "last_updated": now,
-        },
-        "commodities": {}
+    pest = ["spray", "insecticide", "pesticide", "fungicide", "whitefly", "borer", "hopper", "armyworm", "thrips",
+            "aphid", "jassid", "mite", "mealy", "bollworm", "blight", "blast", "wilt", "rot", "rust", "smut",
+            "mildew", "virus", "disease", "infected", "infestation", "flonicamid", "dinotefuran", "imidacloprid",
+            "carbofuran", "fipronil", "chlorpyriphos", "trichoderma", "trap", "pheromone", "monitor",
+            "ਛਿੜਕਾਅ", "ਕੀਟ", "ਕੀੜਾ", "ਕੀੜੇ", "ਕੀੜਿਆਂ", "ਬੀਮਾਰੀ", "ਰੋਗ", "ਬਿਮਾਰੀ",
+            "ਚਿੱਟੀ ਮੱਖੀ", "ਚੇਪਾ", "ਤੇਲਾ", "ਸੁੰਡੀ", "ਗੁਲਾਬੀ ਸੁੰਡੀ", "ਅਮਰੀਕਨ ਸੁੰਡੀ",
+            "ਗੋਭ ਦੀ ਸੁੰਡੀ", "ਤਣੇ ਦੀ ਸੁੰਡੀ", "ਪੱਤਾ ਲਪੇਟ", "ਫੁੱਲ ਕੀੜਾ",
+            "ਫ਼ਫ਼ੂੰਦ", "ਉੱਲੀ", "ਝੁਲਸ", "ਕੁੰਗੀ", "ਕਾਂਗਿਆਰੀ", "ਗੇਰੂਈ",
+            "ਦਵਾਈ", "ਸਪਰੇਅ", "ਜ਼ਹਿਰ", "ਪਾਇਰੀਲਾ", "ਮਿੱਲੀ ਬੱਗ", "ਜੜ੍ਹ ਗਲ", "ਤਣਾ ਗਲ",
+            "ਅਗੇਤਾ ਝੁਲਸ", "ਪਿਛੇਤਾ ਝੁਲਸ", "ਕਾਲੀ ਕੁੰਗੀ", "ਭੂਰੀ ਕੁੰਗੀ", "ਪੀਲੀ ਕੁੰਗੀ"]
+    if any(w in s for w in pest): return "pest_management"
+
+    weed = ["weed", "herbicide", "atrazine", "butachlor", "pendimethalin", "pyrazosulfuron", "bispyribac",
+            "pre-emergence", "post-emergence",
+            "ਨਦੀਨ", "ਨਦੀਨਾਂ", "ਨਦੀਨ ਨਾਸ਼ਕ", "ਬੂਟੀ", "ਬੂਟੀਆਂ", "ਬੂਟੀ ਨਾਸ਼ਕ",
+            "ਘਾਹ", "ਗੁੱਲੀ ਡੰਡਾ", "ਮੰਡੂਸੀ", "ਪਹਿਲਾਂ ਉੱਗਣ ਤੋਂ", "ਬਾਅਦ ਉੱਗਣ ਤੋਂ"]
+    if any(w in s for w in weed): return "weed_management"
+
+    fert = ["fertiliz", "urea", "dap", "nitrogen", "phospho", "potash", "zinc", "sulphate", "micronutrient",
+            "nutrient", "deficiency", "basal dose", "top dress",
+            "ਖਾਦ", "ਯੂਰੀਆ", "ਡੀ.ਏ.ਪੀ", "ਨਾਈਟ੍ਰੋਜਨ", "ਫ਼ਾਸਫ਼ੋਰਸ", "ਪੋਟਾਸ਼",
+            "ਜ਼ਿੰਕ", "ਜ਼ਿੰਕ ਸਲਫ਼ੇਟ", "ਸੂਖ਼ਮ ਤੱਤ", "ਤੱਤ ਦੀ ਘਾਟ", "ਕਮੀ"]
+    if any(w in s for w in fert): return "fertilizer"
+
+    var = ["variety", "varieties", "sowing", "transplant", "nursery", "seed rate", "seed treatment",
+           "pr-126", "pusa basmati", "pbw", "pb ",
+           "ਕਿਸਮ", "ਕਿਸਮਾਂ", "ਬਿਜਾਈ", "ਲੁਆਈ", "ਪਨੀਰੀ", "ਬੀਜ", "ਬੀਜ ਦੀ ਮਾਤਰਾ", "ਬੀਜ ਸੋਧ", "ਰੋਪਾਈ"]
+    if any(w in s for w in var): return "variety_sowing"
+
+    harv = ["harvest", "picking", "maturity", "ripe", "ਕਟਾਈ", "ਵਾਢੀ", "ਤੁੜਾਈ", "ਪੱਕ"]
+    if any(w in s for w in harv): return "harvesting"
+
+    return "general"
+
+
+def categorize_advice(text):
+    advice = []
+    sentences = re.split(r'(?<=[.।!])\s+', text)
+    current_category = "general"
+    current_detail = []
+    for sent in sentences:
+        sent = sent.strip()
+        if not sent: continue
+        cat = detect_category(sent)
+        if cat != current_category and current_detail:
+            advice.append({"category": current_category, "detail": " ".join(current_detail)})
+            current_detail = []
+        current_category = cat
+        current_detail.append(sent)
+    if current_detail:
+        advice.append({"category": current_category, "detail": " ".join(current_detail)})
+    return advice
+
+
+def parse_crop_sections(full_text):
+    crop_advisory = []
+    crop_names_in_text = []
+    for keyword in CROP_KEYWORDS:
+        pattern = re.compile(r'(?:^|\n)\s*(' + re.escape(keyword) + r')\s*[:\-।]', re.IGNORECASE | re.MULTILINE)
+        for m in pattern.finditer(full_text):
+            crop_names_in_text.append((m.start(), m.group(1).strip()))
+
+    crop_names_in_text.sort(key=lambda x: x[0])
+    seen = set()
+    unique_crops = []
+    for pos, name in crop_names_in_text:
+        nl = name.lower()
+        if nl not in seen:
+            seen.add(nl)
+            unique_crops.append((pos, name))
+
+    for i, (pos, crop_name) in enumerate(unique_crops):
+        end = unique_crops[i + 1][0] if i + 1 < len(unique_crops) else len(full_text)
+        section_text = full_text[pos:end].strip()
+        section_text = re.sub(r'^' + re.escape(crop_name) + r'\s*[:\-।]\s*', '', section_text, flags=re.IGNORECASE).strip()
+        if not section_text or len(section_text) < 20: continue
+        display_name = CROP_NAME_MAP.get(crop_name, crop_name.strip().title())
+        crop_advisory.append({
+            "crop": display_name,
+            "full_text": section_text,
+            "advice": categorize_advice(section_text),
+        })
+    return crop_advisory
+
+
+def identify_pest_name(text):
+    t = text.lower()
+    pests = [
+        ("whitefly", "Whitefly"), ("white fly", "Whitefly"), ("jassid", "Jassid"),
+        ("aphid", "Aphid"), ("thrips", "Thrips"), ("mite", "Mite"),
+        ("stem borer", "Stem Borer"), ("shoot borer", "Shoot Borer"),
+        ("top borer", "Top Borer"), ("pink borer", "Pink Borer"),
+        ("fall armyworm", "Fall Armyworm"), ("armyworm", "Armyworm"),
+        ("plant hopper", "Plant Hopper"), ("leafhopper", "Leafhopper"),
+        ("mealy bug", "Mealy Bug"), ("mealybug", "Mealy Bug"),
+        ("bollworm", "Bollworm"), ("leaf curl", "Leaf Curl Virus"),
+        ("sheath blight", "Sheath Blight"), ("brown spot", "Brown Spot"),
+        ("false smut", "False Smut"), ("bacterial blight", "Bacterial Blight"),
+        ("blast", "Blast"), ("blight", "Blight"), ("wilt", "Wilt"),
+        ("rot", "Rot"), ("rust", "Rust"), ("smut", "Smut"),
+        ("mildew", "Mildew"), ("pyrilla", "Pyrilla"), ("leaf folder", "Leaf Folder"),
+        ("parawilt", "Parawilt"),
+        ("ਚਿੱਟੀ ਮੱਖੀ", "Whitefly (ਚਿੱਟੀ ਮੱਖੀ)"), ("ਚੇਪਾ", "Aphid (ਚੇਪਾ)"),
+        ("ਤੇਲਾ", "Jassid (ਤੇਲਾ)"), ("ਥਰਿੱਪ", "Thrips (ਥਰਿੱਪ)"),
+        ("ਗੁਲਾਬੀ ਸੁੰਡੀ", "Pink Bollworm (ਗੁਲਾਬੀ ਸੁੰਡੀ)"),
+        ("ਅਮਰੀਕਨ ਸੁੰਡੀ", "American Bollworm (ਅਮਰੀਕਨ ਸੁੰਡੀ)"),
+        ("ਗੋਭ ਦੀ ਸੁੰਡੀ", "Stem Borer (ਗੋਭ ਦੀ ਸੁੰਡੀ)"),
+        ("ਤਣੇ ਦੀ ਸੁੰਡੀ", "Stem Borer (ਤਣੇ ਦੀ ਸੁੰਡੀ)"),
+        ("ਪੱਤਾ ਲਪੇਟ", "Leaf Folder (ਪੱਤਾ ਲਪੇਟ)"),
+        ("ਮਿੱਲੀ ਬੱਗ", "Mealy Bug (ਮਿੱਲੀ ਬੱਗ)"),
+        ("ਪਾਇਰੀਲਾ", "Pyrilla (ਪਾਇਰੀਲਾ)"),
+        ("ਝੁਲਸ", "Blight (ਝੁਲਸ)"), ("ਕੁੰਗੀ", "Rust (ਕੁੰਗੀ)"),
+        ("ਕਾਂਗਿਆਰੀ", "Smut (ਕਾਂਗਿਆਰੀ)"), ("ਗੇਰੂਈ", "Rust (ਗੇਰੂਈ)"),
+        ("ਜੜ੍ਹ ਗਲ", "Root Rot (ਜੜ੍ਹ ਗਲ)"), ("ਤਣਾ ਗਲ", "Stem Rot (ਤਣਾ ਗਲ)"),
+        ("ਉੱਲੀ", "Fungal Disease (ਉੱਲੀ)"), ("ਫ਼ਫ਼ੂੰਦ", "Fungal Disease (ਫ਼ਫ਼ੂੰਦ)"),
+    ]
+    for kw, name in pests:
+        if kw in t: return name
+    return "General pest/disease"
+
+
+def extract_pest_alerts(crop_advisory):
+    alerts = []
+    for ce in crop_advisory:
+        for adv in ce.get("advice", []):
+            if adv["category"] == "pest_management":
+                severity = "monitoring"
+                if any(w in adv["detail"].lower() for w in ["severe", "heavy", "serious", "major", "ਗੰਭੀਰ", "ਭਾਰੀ", "ਵੱਡਾ", "ਤੇਜ਼"]): severity = "high"
+                elif any(w in adv["detail"].lower() for w in ["moderate", "regular", "ਦਰਮਿਆਨਾ", "ਲਗਾਤਾਰ"]): severity = "medium"
+                alerts.append({"crop": ce["crop"], "pest_name": identify_pest_name(adv["detail"]), "severity": severity, "detail": adv["detail"]})
+    return alerts
+
+
+def extract_seasonal_tips(full_text):
+    tips = []
+    seen = set()
+    patterns = [
+        (r'(Keep\s+proper\s+drainage.*?\.)', "Drainage"),
+        (r'(Application\s+of\s+chemicals.*?rainfall\s+in\s+the\s+area\.?)', "Chemical Application Timing"),
+        (r'(Remove\s+excess\s+rainwater.*?\.)', "Rainwater Management"),
+        (r'(ਪਾਣੀ\s+ਦੀ\s+ਨਿਕਾਸੀ.*?।)', "Drainage (ਪਾਣੀ ਦੀ ਨਿਕਾਸੀ)"),
+        (r'(ਦਵਾਈਆਂ\s+ਦੀ\s+ਵਰਤੋਂ.*?।)', "Chemical Timing (ਦਵਾਈਆਂ ਦੀ ਵਰਤੋਂ)"),
+        (r'(ਬਾਰਿਸ਼\s+ਦਾ\s+ਪਾਣੀ.*?।)', "Rainwater (ਬਾਰਿਸ਼ ਦਾ ਪਾਣੀ)"),
+    ]
+    for pat, topic in patterns:
+        m = re.search(pat, full_text, re.DOTALL | re.IGNORECASE)
+        if m:
+            d = m.group(1).strip()
+            if d not in seen:
+                seen.add(d)
+                tips.append({"topic": topic, "detail": d})
+    return tips
+
+
+def parse_advisory(full_text, tables):
+    crop_adv = parse_crop_sections(full_text)
+    return {
+        "weather": parse_weather(full_text, tables),
+        "crop_advisory": crop_adv,
+        "pest_alerts": extract_pest_alerts(crop_adv),
+        "seasonal_tips": extract_seasonal_tips(full_text),
     }
 
-    for commodity in CANONICAL:
-        years_data = extracted.get(commodity, {})
-        data_list = []
 
-        for year_str in sorted(years_data.keys(), reverse=True):
-            seasons = years_data[year_str]
-            entry = {"year": year_str}
-            for s in VALID_SEASONS:
-                if s in seasons:
-                    entry[s] = seasons[s]
-                else:
-                    entry[s] = None
-            data_list.append(entry)
-
-        pj["commodities"][commodity] = {
-            "name": DISPLAY[commodity],
-            "data": data_list,
-        }
-
-    return pj
+def load_existing():
+    if OUT_PATH.exists():
+        try: return json.loads(OUT_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError: pass
+    return {"source": "Punjab Agricultural University (PAU), Ludhiana", "website": "https://pau.edu",
+            "last_updated": "", "processed_ids": [], "issues": []}
 
 
-def save_json(data, path):
-    """Write JSON file."""
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+def merge_advisory(existing, new_issue):
+    if new_issue["file_id"] in existing.get("processed_ids", []): return False
+    existing.setdefault("issues", []).insert(0, new_issue)
+    existing.setdefault("processed_ids", []).append(new_issue["file_id"])
+    if len(existing["issues"]) > 30:
+        removed = existing["issues"][30:]
+        existing["issues"] = existing["issues"][:30]
+        removed_ids = {r["file_id"] for r in removed}
+        existing["processed_ids"] = [pid for pid in existing["processed_ids"] if pid not in removed_ids]
+    return True
 
-
-def save_manifest():
-    """Update manifest.json."""
-    now = datetime.now(timezone.utc).isoformat()
-    manifest_path = MANIFEST_PATH
-
-    if os.path.exists(manifest_path):
-        with open(manifest_path) as f:
-            manifest = json.load(f)
-    else:
-        manifest = {"processed": []}
-
-    manifest["last_run"] = now
-    manifest["processed"].append({
-        "source": "UPAg CSV download",
-        "processed_at": now,
-        "url": UPAG_URL,
-    })
-
-    save_json(manifest, manifest_path)
-
-
-# ---------------------------------------------------------------------------
-# MAIN
-# ---------------------------------------------------------------------------
 
 def main():
-    log.info("=" * 60)
-    log.info("UPAg APY Data Extractor — Starting")
-    log.info("=" * 60)
+    print("=" * 60, flush=True)
+    print("PAU Advisory Fetcher (Playwright + English/Punjabi)", flush=True)
+    print("=" * 60, flush=True)
 
-    # Phase 1: Download
-    csv_content = download_csv_from_upag()
-    if not csv_content:
-        log.error("Failed to download data from UPAg")
-        sys.exit(1)
+    existing = load_existing()
+    processed_ids = set(existing.get("processed_ids", []))
+    new_count = 0
 
-    # Save raw CSV for debugging
-    raw_path = os.path.join(DATA_DIR, "raw_upag.csv")
-    os.makedirs(DATA_DIR, exist_ok=True)
-    with open(raw_path, "w") as f:
-        f.write(csv_content)
-    log.info(f"Raw CSV saved to {raw_path}")
+    for page in PAU_PAGES:
+        print(f"\n--- {page['name']} ---", flush=True)
 
-    # Phase 2: Parse
-    extracted = parse_csv_data(csv_content)
+        html = fetch_page(page["url"])
+        if not html:
+            print("  FAILED to fetch page. Skipping.", flush=True)
+            continue
 
-    # Check results
-    total = sum(len(v) for v in extracted.values())
-    if total == 0:
-        log.error("No data extracted from CSV")
-        sys.exit(1)
+        print(f"  HTML contains '.pdf': {'.pdf' in html.lower()}", flush=True)
 
-    for commodity in CANONICAL:
-        years = list(extracted[commodity].keys())
-        if years:
-            log.info(f"  {DISPLAY[commodity]}: {len(years)} years "
-                     f"({min(years)} to {max(years)})")
-        else:
-            log.warning(f"  {DISPLAY[commodity]}: NO DATA")
+        links = extract_pdf_links(html, page["type"])
+        print(f"  Found {len(links)} PDF links", flush=True)
+        for l in links[:3]:
+            print(f"    - {l['url']} (issue: {l['issue_number']}, date: {l['date']})", flush=True)
 
-    # Phase 3: Write
-    pj = build_production_json(extracted)
-    save_json(pj, PRODUCTION_JSON)
-    log.info(f"Saved {PRODUCTION_JSON}")
+        new_links = [l for l in links if l["file_id"] not in processed_ids]
+        print(f"  New (unprocessed): {len(new_links)}", flush=True)
 
-    save_manifest()
-    log.info(f"Saved {MANIFEST_PATH}")
+        for link in new_links[:MAX_ISSUES]:
+            print(f"\n  Processing: {link['url']}", flush=True)
+            print(f"    Issue: {link['issue_number']}, Date: {link['date']}", flush=True)
 
-    log.info("=" * 60)
-    log.info("Done!")
-    log.info("=" * 60)
+            pdf_bytes = download_pdf(link["url"])
+            if not pdf_bytes:
+                print("    FAILED to download. Skipping.", flush=True)
+                continue
+            print(f"    Downloaded: {len(pdf_bytes):,} bytes", flush=True)
+
+            raw_text, tables = extract_text_from_pdf(pdf_bytes)
+            if not raw_text.strip():
+                print("    WARNING: No text extracted. Skipping.", flush=True)
+                continue
+            print(f"    Extracted: {len(raw_text):,} chars, {len(tables)} tables", flush=True)
+
+            parsed = parse_advisory(raw_text, tables)
+            cc = len(parsed.get("crop_advisory", []))
+            pc = len(parsed.get("pest_alerts", []))
+            tc = len(parsed.get("seasonal_tips", []))
+            print(f"    Parsed: {cc} crops, {pc} pest alerts, {tc} tips", flush=True)
+
+            issue = {
+                "file_id": link["file_id"],
+                "type": link["type"],
+                "issue_number": link["issue_number"],
+                "date": link["date"],
+                "pdf_url": link["url"],
+                "fetched_at": datetime.now(timezone(timedelta(hours=5, minutes=30))).strftime("%Y-%m-%d %H:%M IST"),
+                "weather": parsed["weather"],
+                "crop_advisory": [{"crop": c["crop"], "advice": c["advice"]} for c in parsed["crop_advisory"]],
+                "pest_alerts": parsed["pest_alerts"],
+                "seasonal_tips": parsed["seasonal_tips"],
+            }
+
+            if merge_advisory(existing, issue):
+                new_count += 1
+                print("    Added to consolidated file.", flush=True)
+
+            time.sleep(3)
+
+    now_ist = datetime.now(timezone(timedelta(hours=5, minutes=30)))
+    existing["last_updated"] = now_ist.strftime("%Y-%m-%d %H:%M:%S IST")
+    existing["source"] = "Punjab Agricultural University (PAU), Ludhiana"
+    existing["website"] = "https://pau.edu"
+    existing["total_issues"] = len(existing.get("issues", []))
+
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OUT_PATH.write_text(json.dumps(existing, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    print(f"\n{'=' * 60}", flush=True)
+    print(f"Done. New issues processed: {new_count}", flush=True)
+    print(f"Total issues in file: {existing['total_issues']}", flush=True)
+    print(f"Wrote: {OUT_PATH}", flush=True)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(f"FATAL ERROR: {e}", file=sys.stderr, flush=True)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
